@@ -1,10 +1,10 @@
 from app.models import Base
 from sqlalchemy.orm import relationship, Mapped, mapped_column
-from sqlalchemy import String, Integer, Text
-from typing import List, Optional, TYPE_CHECKING
+from sqlalchemy import String
+from typing import List, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    pass
+    from .payments import Payment
 
 
 class PaymentMethod(Base):
@@ -18,10 +18,12 @@ class PaymentMethod(Base):
 
     requires_reference: Mapped[bool] = mapped_column(default=False) # Indica si el pago debe tener comprobante
     allows_installments: Mapped[bool] = mapped_column(default=False) # Permite pago en cuotas
-    max_installments: Mapped[int | None] # Número máximode cuotas
+    max_installments: Mapped[int | None] = mapped_column(nullable=True) # Número máximode cuotas
 
     # Control
     is_active: Mapped[bool] = mapped_column(default=True)
+
+    payments: Mapped[List["Payment"]] = relationship(back_populates="payment_method")
 
     def __repr__(self):
         return f"<PaymentMethod name={self.name}>"

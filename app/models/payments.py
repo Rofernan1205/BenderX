@@ -7,7 +7,7 @@ from decimal import Decimal
 if TYPE_CHECKING:
     pass
     # from .sale import Sale  # Asumiendo tus nombres de archivo
-    # from .payment_method import PaymentMethod
+    from .paymentMethods import PaymentMethod
 
 
 class Payment(Base):

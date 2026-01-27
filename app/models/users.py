@@ -18,7 +18,8 @@ class User(Base):
     role_id: Mapped[int] = mapped_column(ForeignKey('roles.id'), nullable=False)
 
 
-
     def __repr__(self) -> str:
-        return f"<Users {self.name}, {self.last_name}, {self.username}> >"
+        return f"<Users {self.name}, {self.last_name}, {self.username} >"
+
+    #https://www.oechsle.pe/laptop-lenovo-loq-8gb-ram-intel-core-i5-12450hx-2925700/p?gad_campaignid=22485560843#
 
