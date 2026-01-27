@@ -13,7 +13,7 @@ class Supplier(Base):
     email : Mapped[str] = mapped_column(String(150), nullable=False)
     address : Mapped[Optional[str]] = mapped_column(Text,nullable=True)
 
-    shopping :Mapped[List["Shopping"]] =relationship(back_populates="supplier")
+    Purchases :Mapped[List["Purchase"]] =relationship(back_populates="supplier")
 
     def __repr__(self) -> str:
         return f"<Supplier {self.name}, {self.ruc}>"
