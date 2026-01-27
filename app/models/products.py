@@ -15,7 +15,7 @@ class Product(Base):
     name: Mapped[str] = mapped_column(String(120), unique=True, nullable=False, index=True)
     brand: Mapped[Optional[str]] = mapped_column(String(80), nullable=True)
     barcode: Mapped[Optional[str]] = mapped_column(String(50), unique=True, nullable=True)
-    description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     price: Mapped[Decimal] = mapped_column(Numeric(10, 2), default=Decimal('0.00'))
     cost: Mapped[Decimal] = mapped_column(Numeric(10, 2), default=Decimal('0.00'))
     stock: Mapped[int] = mapped_column(default=0, nullable=False)
