@@ -4,6 +4,10 @@ from typing import List, TYPE_CHECKING, Optional
 from sqlalchemy import String, Text, ForeignKey, DateTime
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 
+if TYPE_CHECKING:
+    from .roles import Role
+    from .branches import Branch
+
 
 class User(Base):
     __tablename__ = "users"
@@ -15,10 +19,16 @@ class User(Base):
     phone: Mapped[str] = mapped_column(String(15),nullable=False)
     address: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 
+    role_id:Mapped[int] = mapped_column(ForeignKey("roles.id"), nullable=True)
     branch_id :Mapped[int] = mapped_column(ForeignKey('branches.id'), nullable=False)
-    role_id: Mapped[int] = mapped_column(ForeignKey('roles.id'), nullable=False)
 
     last_login :Mapped[Optional[datetime]] = mapped_column(DateTime, nullable=True)
+
+    role: Mapped["Role"] = relationship(back_populates="users")
+    branch: Mapped["Branch"] = relationship(back_populates="users")
+
+    
+
 
 
     def __repr__(self) -> str:

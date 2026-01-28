@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 
 
-class Rol(Base):
+class Role(Base):
     __tablename__ = 'roles'
     name : Mapped[str] = mapped_column(String(60), nullable=False, index=True, unique=True)
     # Relationship

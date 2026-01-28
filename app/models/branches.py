@@ -6,6 +6,10 @@ from .base import Base
 if TYPE_CHECKING:
     from .products import Product
     from .users import User
+    from .cashRegisters import CashRegister
+    from .sales import Sales
+    from purchases import  Purchase
+
 
 
 
@@ -18,8 +22,6 @@ class Branch(Base):
 
     users: Mapped[List["User"]] = relationship(back_populates="branch")
     products: Mapped[List["Product"]] = relationship(back_populates="branch")
-    sales : Mapped[List["Sale"]] = relationship(back_populates="branch")
-    shopping : Mapped[List["Shopping"]] = relationship(back_populates="branch")
     cash_register : Mapped[List["CashRegister"]] = relationship(back_populates="branch")
 
     def __repr__(self) -> str:
