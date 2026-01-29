@@ -1,4 +1,5 @@
 from .base import  Base
+from .companyParameters import CompanyParameter
 from .categories import  Category
 from .customers import Customer
 from .suppliers import Supplier

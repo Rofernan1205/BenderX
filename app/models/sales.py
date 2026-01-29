@@ -1,5 +1,5 @@
 from app.models import Base
 
 
-class Sales(Base):
+class Sale(Base):
     __tablename__ = "sales"

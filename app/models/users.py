@@ -4,9 +4,16 @@ from typing import List, TYPE_CHECKING, Optional
 from sqlalchemy import String, Text, ForeignKey, DateTime
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 
+
 if TYPE_CHECKING:
     from .roles import Role
     from .branches import Branch
+    from .auditLog import AuditLog
+    from .sales import  Sale
+    from .purchases import Purchase
+    from .cashRegisters import CashRegister
+    from .inventoryMovement import InventoryMovement
+
 
 
 class User(Base):
@@ -18,16 +25,18 @@ class User(Base):
     email: Mapped[str] = mapped_column(String(150), unique=True, nullable=False)
     phone: Mapped[str] = mapped_column(String(15),nullable=False)
     address: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    last_login: Mapped[Optional[datetime]] = mapped_column(DateTime, nullable=True)
 
     role_id:Mapped[int] = mapped_column(ForeignKey("roles.id"), nullable=True)
     branch_id :Mapped[int] = mapped_column(ForeignKey('branches.id'), nullable=False)
 
-    last_login :Mapped[Optional[datetime]] = mapped_column(DateTime, nullable=True)
-
     role: Mapped["Role"] = relationship(back_populates="users")
     branch: Mapped["Branch"] = relationship(back_populates="users")
-
-    
+    logs :Mapped[List["AuditLog"]] = relationship(back_populates="user")
+    sales:Mapped[List[Sale]] = relationship(back_populates="user")
+    purchases:Mapped[List[Purchase]] = relationship(back_populates="user")
+    cashRegisters:Mapped[List[CashRegister]] = relationship()
+    inventoryMovements:Mapped[List[InventoryMovement]] = relationship(back_populates="user")
 
 
 

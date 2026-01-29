@@ -7,8 +7,6 @@ if TYPE_CHECKING:
     from .products import Product
     from .users import User
     from .cashRegisters import CashRegister
-    from .sales import Sales
-    from purchases import  Purchase
 
 
 

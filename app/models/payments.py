@@ -1,12 +1,12 @@
-from sqlalchemy import ForeignKey, String, Numeric, Text
-from typing import Optional, TYPE_CHECKING
+from sqlalchemy import ForeignKey, String, Numeric
+from typing import TYPE_CHECKING
 from app.models import Base
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from decimal import Decimal
 
 if TYPE_CHECKING:
     pass
-    # from .sale import Sale  # Asumiendo tus nombres de archivo
+    from .sales import Sale
     from .paymentMethods import PaymentMethod
 
 
