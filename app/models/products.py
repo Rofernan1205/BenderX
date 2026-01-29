@@ -1,5 +1,5 @@
 from decimal import Decimal
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, List
 from sqlalchemy import String, Numeric, ForeignKey, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from .base import Base
@@ -7,6 +7,11 @@ from .base import Base
 if TYPE_CHECKING:
     from .categories import Category
     from .branches import  Branch
+    from .inventoryMovements import InventoryMovement
+    from .productTaxes import ProductTax
+    from .priceHistory import PriceHistory
+    from .purchaseItems import PurchaseItem
+    from .saleItems import SaleItem
 
 
 class Product(Base):
@@ -28,6 +33,13 @@ class Product(Base):
     # Relationship
     category: Mapped["Category"] = relationship(back_populates="products")
     branch: Mapped["Branch"] = relationship( back_populates="products")
+    price_histories: Mapped[List["PriceHistory"]] = relationship(back_populates="product")
+    inventory_movements : Mapped[List["InventoryMovement"]] = relationship(back_populates="product")
+    product_taxes : Mapped[List["ProductTax"]] = relationship(back_populates="product")
+    purchase_items : Mapped[List["PurchaseItem"]] = relationship(back_populates="product")
+    sale_items : Mapped[List["SaleItem"]] = relationship(back_populates="product")
+
+
 
     def __repr__(self) -> str:
         return f"<Product {self.name}, {self.brand}, {self.price}, {self.cost}, {self.stock}>"

@@ -7,7 +7,6 @@ if TYPE_CHECKING:
     from .products import  Product
 
 
-
 class Category(Base):
     __tablename__ = "categories"
     name : Mapped[str] = mapped_column(String(50), unique=True, nullable=False)

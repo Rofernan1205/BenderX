@@ -1,7 +1,10 @@
 from app.models import Base
 from sqlalchemy.orm import relationship, Mapped, mapped_column
-from sqlalchemy import String, Integer, Text
+from sqlalchemy import String, Text
 from typing import Optional, TYPE_CHECKING, List
+
+if TYPE_CHECKING:
+    from .sales import Sale
 
 
 class Customer(Base):

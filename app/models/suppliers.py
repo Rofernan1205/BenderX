@@ -1,8 +1,10 @@
 from app.models import Base
 from typing import List, TYPE_CHECKING, Optional
-from sqlalchemy import String, Text, ForeignKey
+from sqlalchemy import String, Text
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 
+if TYPE_CHECKING:
+    from .purchases import Purchase
 
 
 class Supplier(Base):
