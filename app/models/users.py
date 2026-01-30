@@ -13,6 +13,7 @@ if TYPE_CHECKING:
     from .purchases import Purchase
     from .cashRegisters import CashRegister
     from .inventoryMovement import InventoryMovement
+    from .priceHistory import  PriceHistory
 
 
 
@@ -37,6 +38,10 @@ class User(Base):
     purchases:Mapped[List[Purchase]] = relationship(back_populates="user")
     cashRegisters:Mapped[List[CashRegister]] = relationship()
     inventoryMovements:Mapped[List[InventoryMovement]] = relationship(back_populates="user")
+    price_histories : Mapped[List[PriceHistory]] = relationship(back_populates="user")
+
+
+
 
 
 
