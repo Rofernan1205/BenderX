@@ -2,8 +2,8 @@ from decimal import Decimal
 
 from app.models import Base
 from sqlalchemy.orm import relationship, Mapped, mapped_column
-from sqlalchemy import String, Text, Integer, Numeric
-from typing import List, TYPE_CHECKING
+from sqlalchemy import String, Text, Numeric, ForeignKey
+from typing import TYPE_CHECKING, Optional
 
 if TYPE_CHECKING:
     from .users import  User
@@ -15,5 +15,15 @@ class InventoryMovement(Base):
     quantity : Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)
     stock_before: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)
     stock_after: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)
+    reason: Mapped[Optional[str]] = mapped_column(Text, nullable=False)
+
+    user_id : Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
+    product_id : Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
+
+    user :Mapped["User"] = relationship(back_populates="movements")
+    product :Mapped["Product"] = relationship(back_populates="movements")
+
+    def __repr__(self) -> str:
+        return f"<Movement {self.movement_type}>"
 
 

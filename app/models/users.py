@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     from .sales import  Sale
     from .purchases import Purchase
     from .cashRegisters import CashRegister
-    from .inventoryMovement import InventoryMovement
+    from .inventoryMovements import InventoryMovement
     from .priceHistory import  PriceHistory
 
 
