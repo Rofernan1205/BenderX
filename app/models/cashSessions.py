@@ -1,38 +1,44 @@
 from datetime import datetime
+from decimal import Decimal
+
+from app.models import Base
+from sqlalchemy.orm import relationship, Mapped, mapped_column
+from sqlalchemy import ForeignKey, Integer, String, Numeric, Text
 from typing import List, Optional, TYPE_CHECKING
-from sqlalchemy import String, ForeignKey, DateTime, Text, func
-from sqlalchemy.orm import Mapped, mapped_column, relationship
-from .base import Base
 
 if TYPE_CHECKING:
-    from .branches import Branch
     from .users import  User
     from .cashRegisters import  CashRegister
-    
+    from .userSessions import UserSession
+    from .sales import Sale
+    from .salePayments import SalePayment
+    from .auditLog import AuditLog
 
 
-class CashRegister(Base):
-    __tablename__ = "cash_registers"
+class CashSession(Base):
+    __tablename__ = 'cash_sessions'
+    # fecha apertura
+    exited_at: Mapped[Optional[datetime]] = mapped_column(null=True)
+    opening_balance: Mapped[Decimal] = mapped_column(Numeric(10,2), nullable=False) # Balance inicial
+    closing_balance: Mapped[Decimal] = mapped_column(Numeric(10,2)) # Balance final
+    difference_amount: Mapped[Decimal] = mapped_column(Numeric(10,2)) # Diferencia
+    status: Mapped[Optional[str]] = mapped_column(String(20), default="OPEN")
+    notes : Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+
+    user_id : Mapped[int] = mapped_column(ForeignKey("users.id"))
+    cash_register_id : Mapped[int] = mapped_column(ForeignKey("cash_registers.id"))
+    user_session_id : Mapped[int] = mapped_column(ForeignKey("user_sessions.id"))
+
+    user: Mapped["User"] = relationship(back_populates="cash_registers")
+    cash_register: Mapped["CashRegister"] = relationship(back_populates="cash_registers")
+    user_session: Mapped["UserSession"] = relationship(back_populates="user_sessions")
+
+    sales: Mapped[List["Sale"]] = relationship(back_populates="cash_register")
+    sale_payments: Mapped[List["SalePayment"]] = relationship(back_populates="cash_register")
+    logs: Mapped[list["AuditLog"]] = relationship(back_populates="cash_register")
 
 
 
 
-    usuario_id: Mapped[int] = mapped_column(ForeignKey("usuarios.id", ondelete="CASCADE"))
 
-    # 2. Con Sucursal (¿Desde dónde entró físicamente?)
-    # ondelete="RESTRICT" porque no puedes borrar una sucursal con historial de acceso
-    sucursal_id: Mapped[int] = mapped_column(ForeignKey("sucursales.id", ondelete="RESTRICT"))
 
-    # --- CAMPOS DE AUDITORÍA ---
-    fecha_ingreso: Mapped[datetime] = mapped_column(server_default=func.now())
-    fecha_salida: Mapped[Optional[datetime]] = mapped_column(nullable=True)
-    ip_cliente: Mapped[Optional[str]] = mapped_column(String(45))  # IP local o pública
-    nombre_equipo: Mapped[Optional[str]] = mapped_column(String(100))  # Nombre PC (ej: CAJA-01)
-    is_active: Mapped[bool] = mapped_column(default=True)
-
-    # --- DEFINICIÓN DE RELACIONES (Relationship) ---
-    usuario: Mapped["Usuario"] = relationship(back_populates="sesiones")
-    sucursal: Mapped["Sucursal"] = relationship(back_populates="sesiones")
-
-    # Relación con Logs: Para saber qué se hizo DURANTE esta sesión
-    logs: Mapped[List["LogActividad"]] = relationship(back_populates="sesion", cascade="all, delete-orphan")

@@ -4,6 +4,8 @@ from sqlalchemy import String, Integer, Text, ForeignKey
 from typing import Optional, List, TYPE_CHECKING
 if TYPE_CHECKING:
     from .users import  User
+    from .userSessions import UserSession
+    from .cashSessions import CashSession
 
 
 
@@ -17,6 +19,8 @@ class AuditLog(Base):
 
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=True)
     user: Mapped["User"] = relationship(back_populates="logs")
+    user_session: Mapped["UserSession"] = relationship(back_populates="logs" )
+    cash_register: Mapped[List["CashSession"]] = relationship(back_populates="logs")
 
 
     def __repr__(self) -> str:
