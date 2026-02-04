@@ -29,13 +29,13 @@ class CashSession(Base):
     cash_register_id : Mapped[int] = mapped_column(ForeignKey("cash_registers.id"))
     user_session_id : Mapped[int] = mapped_column(ForeignKey("user_sessions.id"))
 
-    user: Mapped["User"] = relationship(back_populates="cash_registers")
-    cash_register: Mapped["CashRegister"] = relationship(back_populates="cash_registers")
+    user: Mapped["User"] = relationship(back_populates="cash_sessions")
+    cash_register: Mapped["CashRegister"] = relationship(back_populates="cash_sessions")
     user_session: Mapped["UserSession"] = relationship(back_populates="user_sessions")
 
-    sales: Mapped[List["Sale"]] = relationship(back_populates="cash_register")
-    sale_payments: Mapped[List["SalePayment"]] = relationship(back_populates="cash_register")
-    logs: Mapped[list["AuditLog"]] = relationship(back_populates="cash_register")
+    sales: Mapped[List["Sale"]] = relationship(back_populates="cash_session")
+    sale_payments: Mapped[List["SalePayment"]] = relationship(back_populates="cash_session")
+    logs: Mapped[list["AuditLog"]] = relationship(back_populates="cash_session")
 
 
 
