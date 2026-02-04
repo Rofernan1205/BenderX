@@ -4,7 +4,7 @@ from sqlalchemy import String
 from typing import List, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .sales import Sale
+    from .salePayments import SalePayment
 
 
 class PaymentMethod(Base):
@@ -23,7 +23,7 @@ class PaymentMethod(Base):
     # Control
     is_active: Mapped[bool] = mapped_column(default=True)
 
-    sales: Mapped[List["Sale"]] = relationship(back_populates="payment_method")
+    sale_payments: Mapped[List["SalePayment"]] = relationship(back_populates="payment_method")
 
     def __repr__(self) -> str:
         return f"<PaymentMethod name={self.name}>"
