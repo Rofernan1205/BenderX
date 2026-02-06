@@ -36,8 +36,8 @@ class Sale(Base):
     customer_id: Mapped[Optional[int]] = mapped_column(ForeignKey("customers.id", ondelete="SET NULL"), nullable=True)
     cash_session_id : Mapped[int] = mapped_column(ForeignKey("cash_sessions.id"), ondelete="RESTRICT")
 
-    user: Mapped["User"] = relationship(back_populates="sales")
-    customer: Mapped["Customer"] = relationship(back_populates="sales")
+    user: Mapped["User"] = relationship()
+    customer: Mapped["Customer"] = relationship()
     cash_session: Mapped["CashSession"] = relationship(back_populates="sales")
 
     invoice: Mapped["Invoice"] = relationship(back_populates="sale")

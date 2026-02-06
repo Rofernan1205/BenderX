@@ -1,21 +1,34 @@
-from .base import  Base
-from .companyParameters import CompanyParameter
-from .categories import  Category
-from .customers import Customer
-from .suppliers import Supplier
-from .purchases import Purchase # Compras
-from .products import Product
-from .branches import Branch # Sucursales
-from .roles import Role
-from .users import User
-from .payments import Payment # Pagos
-from .paymentMethods import PaymentMethod # Metodos de pago
-from .cashRegisters import CashRegister
-from .purchaseItems import PurchaseItem
-from .saleItems import SaleItem
-from .sales import Sale
-from .cashMovement import CashMovement
 from .auditLog import AuditLog
-from .documentTypes import DocumentTypes
+from base import Base
+from .branches import Branch
+from .cashMovements import CashMovement
+from .cashRegisters import CashRegister
+from .cashSessions import CashSession
+from .categories import Category
+from .companyParameters import  CompanyParameter
+from .customers import Customer
+from .documentTypes import DocumentType
+from .inventoryMovements import InventoryMovement
+from .invoices import Invoice
+from .paymentMethods import PaymentMethod
+from .priceHistory import PriceHistory
+from .products import Product
+from .productTaxes import ProductTax
+from .purchaseItems import PurchaseItem
+from .purchases import Purchase
+from .roles import Role
+from .saleItems import SaleItem
+from .salePayments import SalePayment
+from .sales import Sale
+from .suppliers import Supplier
+from .taxes import Tax
+from .users import User
+from .userSessions import UserSession
+
+
+
+
+
+
 
 

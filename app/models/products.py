@@ -10,8 +10,8 @@ if TYPE_CHECKING:
     from .inventoryMovements import InventoryMovement
     from .productTaxes import ProductTax
     from .priceHistory import PriceHistory
-    from .purchaseItems import PurchaseItem
-    from .saleItems import SaleItem
+    # from .purchaseItems import PurchaseItem
+    # from .saleItems import SaleItem
 
 
 class Product(Base):
@@ -36,8 +36,8 @@ class Product(Base):
     price_histories: Mapped[List["PriceHistory"]] = relationship(back_populates="product")
     inventory_movements : Mapped[List["InventoryMovement"]] = relationship(back_populates="product")
     product_taxes : Mapped[List["ProductTax"]] = relationship(back_populates="product")
-    purchase_items : Mapped[List["PurchaseItem"]] = relationship(back_populates="product")
-    sale_items : Mapped[List["SaleItem"]] = relationship(back_populates="product")
+    # purchase_items : Mapped[List["PurchaseItem"]] = relationship(back_populates="product")
+    # sale_items : Mapped[List["SaleItem"]] = relationship(back_populates="product")
 
 
 

@@ -21,7 +21,7 @@ class SaleItem(Base):
     sale_id : Mapped[int] = mapped_column(ForeignKey("sales.id"), nullable=False)
 
     sale : Mapped["Sale"] = relationship(back_populates="sale_items")
-    product : Mapped["Product"] = relationship(back_populates="product_items")
+    product : Mapped["Product"] = relationship()
 
     def __repr__(self) -> str:
         return f"<SaleItem product_id={self.product_id} qty={self.quantity}>"

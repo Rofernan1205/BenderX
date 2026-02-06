@@ -1,10 +1,11 @@
 from app.models import Base
-from sqlalchemy.orm import relationship, Mapped, mapped_column
+from sqlalchemy.orm import   Mapped, mapped_column
 from sqlalchemy import String, Text
-from typing import Optional, TYPE_CHECKING, List
+from typing import Optional, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .sales import Sale
+    pass
+    # from .sales import Sale
 
 
 class Customer(Base):
@@ -17,7 +18,7 @@ class Customer(Base):
     ruc: Mapped[str] = mapped_column(String(20), nullable=False, unique=True, index=True)
     address: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 
-    sales: Mapped[List["Sale"]] = relationship(back_populates="customer")
+    # sales: Mapped[List["Sale"]] = relationship(back_populates="customer")
 
 
 
