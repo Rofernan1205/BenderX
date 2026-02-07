@@ -9,8 +9,9 @@ if TYPE_CHECKING:
 
 class PaymentMethod(Base):
     __tablename__ = "payment_methods"
-    name: Mapped[str] = mapped_column(String(50), nullable=False, unique=True, index=True)
     code: Mapped[str] = mapped_column(String(20), nullable=False, unique=True)
+    name: Mapped[str] = mapped_column(String(50), nullable=False, unique=True, index=True)
+
 
     # Reglas de negocio
     fee_percentage: Mapped[float] = mapped_column(default=0.0) # Porcenjate de comisión se aplica  al monto de pago

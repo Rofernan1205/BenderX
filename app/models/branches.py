@@ -15,14 +15,13 @@ if TYPE_CHECKING:
 class Branch(Base):
     __tablename__ = " "
     name : Mapped[str] = mapped_column(String(100), unique=True, index=True)
-    phone : Mapped[str] = mapped_column(String(20), unique=True, nullable=True)
-    email : Mapped[str] = mapped_column(String(150), unique=True, nullable=True)
+    phone : Mapped[str] = mapped_column(String(20), unique=True, nullable=False)
+    email : Mapped[str] = mapped_column(String(150), unique=True, nullable=False)
     address : Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 
     users: Mapped[List["User"]] = relationship(back_populates="branch")
     products: Mapped[List["Product"]] = relationship(back_populates="branch")
     cash_register : Mapped[List["CashRegister"]] = relationship(back_populates="branch")
-
     user_sessions: Mapped[List["UserSession"]] = relationship(back_populates="branch")
 
     def __repr__(self) -> str:

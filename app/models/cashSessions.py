@@ -18,12 +18,13 @@ if TYPE_CHECKING:
 class CashSession(Base):
     __tablename__ = 'cash_sessions'
     # fecha apertura
-    exited_at: Mapped[Optional[datetime]] = mapped_column(null=True)
+
     opening_balance: Mapped[Decimal] = mapped_column(Numeric(10,2), nullable=False) # Balance inicial
     closing_balance: Mapped[Decimal] = mapped_column(Numeric(10,2)) # Balance final
     difference_amount: Mapped[Decimal] = mapped_column(Numeric(10,2)) # Diferencia
     status: Mapped[Optional[str]] = mapped_column(String(20), default="OPEN")
     notes : Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    exited_at: Mapped[Optional[datetime]] = mapped_column(null=True)
 
     user_id : Mapped[int] = mapped_column(ForeignKey("users.id"))
     cash_register_id : Mapped[int] = mapped_column(ForeignKey("cash_registers.id"))
