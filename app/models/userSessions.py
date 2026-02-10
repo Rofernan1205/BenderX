@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     from .users import  User
     from .branches import Branch
     from .cashSessions import CashSession
-    from .auditLog import AuditLog
+    # from .auditLog import AuditLog
 
 
 class UserSession(Base):
@@ -27,7 +27,7 @@ class UserSession(Base):
     branch:Mapped["Branch"] = relationship(back_populates="user_sessions")
 
     cash_sessions: Mapped["CashSession"]= relationship("CashSession", back_populates="user_session")
-    logs : Mapped["AuditLog"] = relationship(back_populates="user_session")
+    # logs : Mapped["AuditLog"] = relationship(back_populates="user_session")
 
     def __repr__(self):
         return f"<UserSession {self.computer_name}>"

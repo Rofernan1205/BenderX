@@ -8,8 +8,7 @@ if TYPE_CHECKING:
     from .users import User
     from .cashRegisters import CashRegister
     from .userSessions import UserSession
-
-
+    # from .auditLog import AuditLog
 
 
 class Branch(Base):
@@ -22,7 +21,9 @@ class Branch(Base):
     users: Mapped[List["User"]] = relationship(back_populates="branch")
     products: Mapped[List["Product"]] = relationship(back_populates="branch")
     cash_register : Mapped[List["CashRegister"]] = relationship(back_populates="branch")
-    user_sessions: Mapped[List["UserSession"]] = relationship(back_populates="branch")
+    user_session: Mapped[List["UserSession"]] = relationship(back_populates="branch")
+    # audit_log: Mapped[List["AuditLog"]] = relationship(back_populates="branch")
+
 
     def __repr__(self) -> str:
         return f"<Branch {self.name}, {self.phone} users>"

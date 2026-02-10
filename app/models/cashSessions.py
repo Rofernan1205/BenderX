@@ -12,7 +12,9 @@ if TYPE_CHECKING:
     from .userSessions import UserSession
     from .sales import Sale
     from .salePayments import SalePayment
-    from .auditLog import AuditLog
+    # from .auditLog import AuditLog
+    from .cashMovements import CashMovement
+
 
 
 class CashSession(Base):
@@ -34,9 +36,11 @@ class CashSession(Base):
     cash_register: Mapped["CashRegister"] = relationship(back_populates="cash_sessions")
     user_session: Mapped["UserSession"] = relationship(back_populates="user_sessions")
 
+    cash_movements : Mapped[List["CashMovement"]] = relationship(back_populates="cash_session", cascade="all, delete-orphan")
     sales: Mapped[List["Sale"]] = relationship(back_populates="cash_session")
     sale_payments: Mapped[List["SalePayment"]] = relationship(back_populates="cash_session")
-    logs: Mapped[list["AuditLog"]] = relationship(back_populates="cash_session")
+    # logs: Mapped[list["AuditLog"]] = relationship(back_populates="cash_session")
+
 
 
 

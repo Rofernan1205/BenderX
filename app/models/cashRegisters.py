@@ -30,7 +30,7 @@ class CashRegister(Base):
 
     def __repr__(self) -> str:
         return f"<CashRegister: {self.name}>"
-DF
+
 
 
 

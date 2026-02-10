@@ -8,7 +8,7 @@ from sqlalchemy.orm import relationship, Mapped, mapped_column
 if TYPE_CHECKING:
     from .roles import Role
     from .branches import Branch
-    from .auditLog import AuditLog
+    # from .auditLog import AuditLog
     # from .sales import  Sale
     from .purchases import Purchase
     from .cashRegisters import CashRegister
@@ -35,7 +35,7 @@ class User(Base):
 
     role: Mapped["Role"] = relationship(back_populates="users")
     branch: Mapped["Branch"] = relationship(back_populates="users")
-    logs :Mapped[List["AuditLog"]] = relationship(back_populates="user")
+    # logs :Mapped[List["AuditLog"]] = relationship(back_populates="user")
     # sales:Mapped[List[Sale]] = relationship(back_populates="user")
     purchases:Mapped[List[Purchase]] = relationship(back_populates="user")
     cashRegisters:Mapped[List[CashRegister]] = relationship()
