@@ -2,20 +2,20 @@ from decimal import Decimal
 
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, ForeignKey, Numeric
-from app.models import Base
+from app.models.base import Base
 from typing import TYPE_CHECKING, Optional
 
 if TYPE_CHECKING:
     from .cashSessions import CashSession
     from .paymentMethods import PaymentMethod
-    from .sales import Sale
+
 
 
 
 class SalePayment(Base):
     __tablename__ = "sale_payments"
 
-    sale_id: Mapped[int] = mapped_column(ForeignKey("sales.id"), nullable=False, ondelete="CASCADE")
+    sale_id: Mapped[int] = mapped_column(ForeignKey("sales.id" , ondelete="CASCADE"), nullable=False)
     payment_method_id : Mapped[int] = mapped_column(ForeignKey("payment_methods.id"), nullable=False)
     cash_session_id : Mapped[int] = mapped_column(ForeignKey("cash_sessions.id"), nullable=False)
 

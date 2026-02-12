@@ -2,7 +2,7 @@ from decimal import Decimal
 from sqlalchemy.orm import Mapped, mapped_column, Relationship
 from sqlalchemy import String, Numeric, ForeignKey
 from typing import TYPE_CHECKING
-from app.models import Base
+from app.models.base import Base
 
 if TYPE_CHECKING:
     from.documentTypes import DocumentType
@@ -16,7 +16,7 @@ class Invoice(Base):
     fee_amount: Mapped[Decimal] = mapped_column(Numeric(18, 2), default=Decimal('0.00')) #Comisiones credit card 4.5%
     total_paid: Mapped[Decimal] = mapped_column(Numeric(18, 2), nullable=False) # Monto total
 
-    sale_id: Mapped[int] = mapped_column(ForeignKey('sales.id'), nullable=False, ondelete="RESTRICT")
+    sale_id: Mapped[int] = mapped_column(ForeignKey('sales.id', ondelete="RESTRICT"), nullable=False)
     document_type_id: Mapped[int] = mapped_column(ForeignKey("document_types.id", ondelete="RESTRICT"),nullable=False )
 
     sale :Mapped["Sale"] = Relationship(back_populates="invoices")

@@ -1,5 +1,5 @@
+from .base import Base
 from .auditLog import AuditLog
-from base import Base
 from .branches import Branch
 from .cashMovements import CashMovement
 from .cashRegisters import CashRegister

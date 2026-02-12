@@ -1,6 +1,6 @@
 
 from decimal import Decimal
-from app.models import Base
+from app.models.base import Base
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from typing import List, TYPE_CHECKING, Optional
 from sqlalchemy import Text, Numeric, ForeignKey
@@ -19,7 +19,7 @@ class PriceHistory(Base):
     reason : Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 
     user_id : Mapped[int] = mapped_column(ForeignKey('users.id'), nullable=False)
-    product_id : Mapped[int] = mapped_column(ForeignKey('products.id'), nullable=False, ondelete='RESTRICT')
+    product_id : Mapped[int] = mapped_column(ForeignKey('products.id' , ondelete='RESTRICT'), nullable=False)
 
     products : Mapped[List["Product"]] = relationship(back_populates="price_history")
     user : Mapped["User"] = relationship(back_populates="price_histories")

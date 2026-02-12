@@ -1,7 +1,7 @@
 from sqlalchemy import String
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from typing import List, TYPE_CHECKING
-from app.models import Base
+from app.models.base import Base
 
 if TYPE_CHECKING:
     from .invoices import Invoice

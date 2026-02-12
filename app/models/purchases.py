@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from app.models import Base
+from app.models.base import Base
 from typing import List, TYPE_CHECKING, Optional
 from sqlalchemy import String, Text, ForeignKey, Numeric
 from sqlalchemy.orm import relationship, Mapped, mapped_column

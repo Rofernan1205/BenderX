@@ -2,8 +2,7 @@ from decimal import Decimal
 from sqlalchemy import ForeignKey, Numeric, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import  TYPE_CHECKING
-
-from app.models import Base
+from app.models.base import Base
 if TYPE_CHECKING:
     from .users import User
     from .branches import Branch

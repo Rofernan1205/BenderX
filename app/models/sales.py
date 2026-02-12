@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from sqlalchemy import ForeignKey, String, Numeric, Text
 from sqlalchemy.orm import Mapped, relationship, mapped_column
-from app.models import Base
+from app.models.base import Base
 from typing import TYPE_CHECKING, List, Optional
 
 if TYPE_CHECKING:
@@ -32,9 +32,9 @@ class Sale(Base):
     notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), ondelete="RESTRICT")
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id" , ondelete="RESTRICT"))
     customer_id: Mapped[Optional[int]] = mapped_column(ForeignKey("customers.id", ondelete="SET NULL"), nullable=True)
-    cash_session_id : Mapped[int] = mapped_column(ForeignKey("cash_sessions.id"), ondelete="RESTRICT")
+    cash_session_id : Mapped[int] = mapped_column(ForeignKey("cash_sessions.id" , ondelete="RESTRICT"))
 
     user: Mapped["User"] = relationship()
     customer: Mapped["Customer"] = relationship()

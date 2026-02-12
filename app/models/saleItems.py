@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from app.models import Base
+from app.models.base import Base
 from sqlalchemy.orm import relationship, Mapped ,mapped_column
 from sqlalchemy import  Numeric, Integer, ForeignKey
 from typing import TYPE_CHECKING
@@ -18,7 +18,7 @@ class SaleItem(Base):
     discount: Mapped[Decimal] = mapped_column(Numeric(18, 2), default=0.00) # Descuento
 
     product_id: Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
-    sale_id : Mapped[int] = mapped_column(ForeignKey("sales.id"), nullable=False, ondelete="CASCADE")
+    sale_id : Mapped[int] = mapped_column(ForeignKey("sales.id", ondelete="CASCADE"), nullable=False)
 
     sale : Mapped["Sale"] = relationship(back_populates="sale_items")
     product : Mapped["Product"] = relationship()

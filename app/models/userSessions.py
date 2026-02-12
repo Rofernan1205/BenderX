@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from app.models import Base
+from app.models.base import Base
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from sqlalchemy import String, ForeignKey
 from typing import  TYPE_CHECKING , Optional
@@ -20,8 +20,8 @@ class UserSession(Base):
 
     exited_at: Mapped[Optional[datetime]] = mapped_column(nullable=True) # Fecha de salida
 
-    user_id : Mapped[int] = mapped_column(ForeignKey('users.id'), ondelete='CASCADE')
-    branch_id : Mapped[int] = mapped_column(ForeignKey('branches.id'), ondelete='RESTRICT')
+    user_id : Mapped[int] = mapped_column(ForeignKey('users.id' , ondelete='CASCADE'))
+    branch_id : Mapped[int] = mapped_column(ForeignKey('branches.id' , ondelete='RESTRICT'))
 
     user:Mapped["User"] = relationship(back_populates="user_sessions")
     branch:Mapped["Branch"] = relationship(back_populates="user_sessions")

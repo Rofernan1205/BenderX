@@ -1,4 +1,4 @@
-from app.models import Base
+from app.models.base import Base
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from sqlalchemy import String, ForeignKey
 from typing import Optional, TYPE_CHECKING

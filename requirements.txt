@@ -26,3 +26,5 @@ SQLAlchemy==2.0.46
 typing_extensions==4.15.0
 tzdata==2025.3
 win32_setctime==1.2.0
+
+uliweb-alembic

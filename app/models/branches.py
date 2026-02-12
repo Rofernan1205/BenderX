@@ -1,7 +1,7 @@
 from typing import List, TYPE_CHECKING, Optional
 from sqlalchemy import  String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from .base import Base
+from app.models.base import Base
 
 if TYPE_CHECKING:
     from .products import Product
