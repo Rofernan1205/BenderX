@@ -3,7 +3,7 @@ from decimal import Decimal
 
 from app.models import Base
 from sqlalchemy.orm import relationship, Mapped, mapped_column
-from sqlalchemy import ForeignKey, Integer, String, Numeric, Text
+from sqlalchemy import ForeignKey, String, Numeric, Text
 from typing import List, Optional, TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -21,9 +21,9 @@ class CashSession(Base):
     __tablename__ = 'cash_sessions'
     # fecha apertura
 
-    opening_balance: Mapped[Decimal] = mapped_column(Numeric(10,2), nullable=False) # Balance inicial
-    closing_balance: Mapped[Decimal] = mapped_column(Numeric(10,2)) # Balance final
-    difference_amount: Mapped[Decimal] = mapped_column(Numeric(10,2)) # Diferencia
+    opening_balance: Mapped[Decimal] = mapped_column(Numeric(18,2), nullable=False) # Balance inicial
+    closing_balance: Mapped[Decimal] = mapped_column(Numeric(18,2)) # Balance final
+    difference_amount: Mapped[Decimal] = mapped_column(Numeric(18,2)) # Diferencia
     status: Mapped[Optional[str]] = mapped_column(String(20), default="OPEN")
     notes : Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     exited_at: Mapped[Optional[datetime]] = mapped_column(null=True)

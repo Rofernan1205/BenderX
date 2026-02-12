@@ -3,7 +3,7 @@ from decimal import Decimal
 from app.models import Base
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from typing import List, TYPE_CHECKING, Optional
-from sqlalchemy import Text, Numeric, ForeignKey, true
+from sqlalchemy import Text, Numeric, ForeignKey
 
 if TYPE_CHECKING:
     from .products import Product
@@ -14,8 +14,8 @@ if TYPE_CHECKING:
 
 class PriceHistory(Base):
     __tablename__ = "price_histories"
-    old_price : Mapped[Decimal] = mapped_column(Numeric(10,2), nullable=False)
-    new_price : Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)
+    old_price : Mapped[Decimal] = mapped_column(Numeric(18,2), nullable=False)
+    new_price : Mapped[Decimal] = mapped_column(Numeric(18, 2), nullable=False)
     reason : Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 
     user_id : Mapped[int] = mapped_column(ForeignKey('users.id'), nullable=False)

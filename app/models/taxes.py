@@ -11,7 +11,7 @@ class Tax(Base):
     __tablename__ = "taxes"
     code: Mapped[str] = mapped_column(String(20), nullable=False)
     name: Mapped[str] = mapped_column(String(50), nullable=False, index=True)
-    rate : Mapped[Decimal] = mapped_column(Numeric(10,2), nullable=False) # porcentaje
+    rate : Mapped[Decimal] = mapped_column(Numeric(18,2), nullable=False) # porcentaje
     is_percentage : Mapped[bool] = mapped_column(nullable=False, default=True)
 
     product_taxes : Mapped[List["ProductTax"]] = relationship(back_populates="tax", cascade="all, delete-orphan")

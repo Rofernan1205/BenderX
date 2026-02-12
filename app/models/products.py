@@ -21,8 +21,8 @@ class Product(Base):
     brand: Mapped[Optional[str]] = mapped_column(String(80), nullable=True)
     barcode: Mapped[Optional[str]] = mapped_column(String(50), unique=True, nullable=True)
     description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
-    price: Mapped[Decimal] = mapped_column(Numeric(10, 2), default=Decimal('0.00'))
-    cost: Mapped[Decimal] = mapped_column(Numeric(10, 2), default=Decimal('0.00'))
+    price: Mapped[Decimal] = mapped_column(Numeric(18, 2), default=Decimal('0.00'))
+    cost: Mapped[Decimal] = mapped_column(Numeric(18, 2), default=Decimal('0.00'))
     stock: Mapped[int] = mapped_column(default=0, nullable=False)
     image_path: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
 
@@ -33,6 +33,7 @@ class Product(Base):
     # Relationship
     category: Mapped["Category"] = relationship(back_populates="products")
     branch: Mapped["Branch"] = relationship( back_populates="products")
+
     price_histories: Mapped[List["PriceHistory"]] = relationship(back_populates="product")
     inventory_movements : Mapped[List["InventoryMovement"]] = relationship(back_populates="product")
     product_taxes : Mapped[List["ProductTax"]] = relationship(back_populates="product")

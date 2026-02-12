@@ -20,7 +20,7 @@ class SalePayment(Base):
     cash_session_id : Mapped[int] = mapped_column(ForeignKey("cash_sessions.id"), nullable=False)
 
 
-    amount : Mapped[Decimal] = mapped_column(Numeric(10,2)) # Monto o cantidad
+    amount : Mapped[Decimal] = mapped_column(Numeric(18,2)) # Monto o cantidad
     reference : Mapped[Optional[str]] = mapped_column(String(100), nullable=True, index=True) # Numero de operacion
     status : Mapped[str] = mapped_column(String(50), default="completed") # Completado, pendiente, cancelado
 

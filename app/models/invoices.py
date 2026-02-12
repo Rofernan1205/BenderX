@@ -12,14 +12,14 @@ if TYPE_CHECKING:
 class Invoice(Base):
     __tablename__ = 'invoices'
     document_number: Mapped[str] = mapped_column(String(20), unique=True, nullable=False) # F001-000123
-    amount: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False) # Monto sin comisiones
-    fee_amount: Mapped[Decimal] = mapped_column(Numeric(10, 2), default=Decimal('0.00')) #Comisiones credit card 4.5%
-    total_paid: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False) # Monto total
+    amount: Mapped[Decimal] = mapped_column(Numeric(18, 2), nullable=False) # Monto sin comisiones
+    fee_amount: Mapped[Decimal] = mapped_column(Numeric(18, 2), default=Decimal('0.00')) #Comisiones credit card 4.5%
+    total_paid: Mapped[Decimal] = mapped_column(Numeric(18, 2), nullable=False) # Monto total
 
     sale_id: Mapped[int] = mapped_column(ForeignKey('sales.id'), nullable=False, ondelete="RESTRICT")
     document_type_id: Mapped[int] = mapped_column(ForeignKey("document_types.id", ondelete="RESTRICT"),nullable=False )
 
-    sale :Mapped["Sale"] = Relationship(back_populates="invoice")
+    sale :Mapped["Sale"] = Relationship(back_populates="invoices")
     document_type:Mapped["DocumentType"] = Relationship(back_populates="invoices")
 
     def __repr__(self) -> str:

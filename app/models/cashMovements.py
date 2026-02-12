@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 class CashMovement(Base):
     __tablename__ = 'cash_movements'
 
-    amount: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)
+    amount: Mapped[Decimal] = mapped_column(Numeric(18, 2), nullable=False)
     type: Mapped[str] = mapped_column(String(20))  # "INGRESO" o "EGRESO"
     reason: Mapped[str] = mapped_column(String(255))  # Ej: "Pago de delivery", "Aporte de sencillo"
     cash_session_id: Mapped[int] = mapped_column(

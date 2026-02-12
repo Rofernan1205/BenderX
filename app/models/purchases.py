@@ -17,9 +17,9 @@ class Purchase(Base):
     # Número de factura o remisión del proveedor (Ej: 'FAC-9928')
     reference_number: Mapped[Optional[str]] = mapped_column(String(100), index=True)
 
-    subtotal: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False) # Monto Neto de compras sin inpuestos
-    tax_amount: Mapped[Decimal] = mapped_column(Numeric(10, 2), default=0.00) # Impuesto aplicado al subtotal
-    total_amount: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False) # suma subtotal + impuestos
+    subtotal: Mapped[Decimal] = mapped_column(Numeric(18, 2), nullable=False) # Monto Neto de compras sin inpuestos
+    tax_amount: Mapped[Decimal] = mapped_column(Numeric(18, 2), default=0.00) # Impuesto aplicado al subtotal
+    total_amount: Mapped[Decimal] = mapped_column(Numeric(18, 2), nullable=False) # suma subtotal + impuestos
 
     # 'ordered' , 'received', 'cancelled'
     status: Mapped[str] = mapped_column(String(20), default="received", index=True)

@@ -1,7 +1,7 @@
 from app.models import Base
 from sqlalchemy.orm import relationship, Mapped, mapped_column
-from sqlalchemy import String, Integer, Text, ForeignKey
-from typing import Optional, List, TYPE_CHECKING
+from sqlalchemy import String, ForeignKey
+from typing import Optional, TYPE_CHECKING
 if TYPE_CHECKING:
     from .users import  User
     from .userSessions import UserSession

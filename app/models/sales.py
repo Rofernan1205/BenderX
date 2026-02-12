@@ -20,10 +20,10 @@ class Sale(Base):
     # Número de ticket o factura (Ej: 'TK-0001')
     invoice_number: Mapped[str] = mapped_column(String(50), unique=True, index=True, nullable=False)
 
-    subtotal: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)  # Sin impuestos
-    tax_amount: Mapped[Decimal] = mapped_column(Numeric(10, 2), default=0.00)  # Total impuestos (IVA/IGV)
-    discount_amount: Mapped[Decimal] = mapped_column(Numeric(10, 2), default=0.00)  # Descuento total
-    total_amount: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)  # Neto a pagar
+    subtotal: Mapped[Decimal] = mapped_column(Numeric(18, 2), nullable=False)  # Sin impuestos
+    tax_amount: Mapped[Decimal] = mapped_column(Numeric(18, 2), default=0.00)  # Total impuestos (IVA/IGV)
+    discount_amount: Mapped[Decimal] = mapped_column(Numeric(18, 2), default=0.00)  # Descuento total
+    total_amount: Mapped[Decimal] = mapped_column(Numeric(18, 2), nullable=False)  # Neto a pagar
 
     # Estado de la venta: 'completed' (pagada), 'pending' (crédito), 'cancelled' (anulada)
     status: Mapped[str] = mapped_column(String(20), default="completed", index=True)
@@ -40,7 +40,7 @@ class Sale(Base):
     customer: Mapped["Customer"] = relationship()
     cash_session: Mapped["CashSession"] = relationship(back_populates="sales")
 
-    invoice: Mapped["Invoice"] = relationship(back_populates="sale")
+    invoices: Mapped["Invoice"] = relationship(back_populates="sale")
     sale_payments : Mapped[List["SalePayment"]] = relationship(back_populates="sale", cascade="all, delete-orphan")
     sale_items : Mapped[List["SaleItem"]] = relationship(back_populates="sale", cascade="all, delete-orphan")
 

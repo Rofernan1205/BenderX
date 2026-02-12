@@ -1,5 +1,5 @@
 from app.models import Base
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String,Text
 from typing import Optional
 
