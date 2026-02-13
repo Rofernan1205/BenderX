@@ -25,7 +25,7 @@ class CashSession(Base):
     difference_amount: Mapped[Decimal] = mapped_column(Numeric(18,2)) # Diferencia
     status: Mapped[Optional[str]] = mapped_column(String(20), default="OPEN")
     notes : Mapped[Optional[str]] = mapped_column(Text, nullable=True)
-    exited_at: Mapped[Optional[datetime]] = mapped_column(null=True)
+    exited_at: Mapped[Optional[datetime]] = mapped_column(nullable=True)
 
     user_id : Mapped[int] = mapped_column(ForeignKey("users.id"))
     cash_register_id : Mapped[int] = mapped_column(ForeignKey("cash_registers.id"))

@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 
 class Branch(Base):
-    __tablename__ = " "
+    __tablename__ = "branches"
     name : Mapped[str] = mapped_column(String(100), unique=True, index=True)
     phone : Mapped[str] = mapped_column(String(20), unique=True, nullable=False)
     email : Mapped[str] = mapped_column(String(150), unique=True, nullable=False)
@@ -23,6 +23,7 @@ class Branch(Base):
     products: Mapped[List["Product"]] = relationship(back_populates="branch")
     cash_registers : Mapped[List["CashRegister"]] = relationship(back_populates="branch")
     user_sessions: Mapped[List["UserSession"]] = relationship(back_populates="branch")
+
     # audit_logs: Mapped[List["AuditLog"]] = relationship(back_populates="branch")
     # cash_movements: Mapped[List["CashMovement"]] = relationship( back_populates="branch")
 
