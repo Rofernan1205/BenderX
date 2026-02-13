@@ -1,3 +1,4 @@
+import os
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
@@ -12,6 +13,13 @@ import sys
 
 sys.path.insert(0, abspath(join(dirname(__file__), "..")))
 config = context.config # Añadir direccion
+
+# La base de datos se guarda en AppData
+db_dir = os.path.join(os.getenv('LOCALAPPDATA'), "BenderX")
+db_path = os.path.join(db_dir, "benderx.db")
+db_url = f"sqlite:///{db_path}"
+config.set_main_option("sqlalchemy.url", db_url)
+
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.

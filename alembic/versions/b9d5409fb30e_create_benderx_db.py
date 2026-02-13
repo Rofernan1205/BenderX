@@ -1,8 +1,8 @@
 """create benderx.db
 
-Revision ID: cdceac012300
+Revision ID: b9d5409fb30e
 Revises: 
-Create Date: 2026-02-13 08:58:03.729710
+Create Date: 2026-02-13 09:20:49.654150
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'cdceac012300'
+revision: str = 'b9d5409fb30e'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -250,7 +250,7 @@ def upgrade() -> None:
     sa.Column('is_active', sa.Boolean(), nullable=False),
     sa.ForeignKeyConstraint(['product_id'], ['products.id'], ondelete='CASCADE'),
     sa.ForeignKeyConstraint(['tax_id'], ['taxes.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('product_id', 'tax_id', 'id')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('purchases',
     sa.Column('reference_number', sa.String(length=100), nullable=True),
