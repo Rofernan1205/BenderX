@@ -27,8 +27,8 @@ def get_db():
     db = SessionLocal()
     try:
         yield db
-    except Exception:
+    except Exception as e:
         db.rollback()
-        raise "Error connecting to database"
+        raise Exception(f"Error en la base de datos: {e}")
     finally:
         db.close()
