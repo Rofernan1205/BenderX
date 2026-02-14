@@ -1,25 +1,28 @@
 from sqlalchemy.orm import Session
+
+from app.models import Role
 from app.models.roles import Role
+
 
 class RoleRepository:
 
-    @staticmethod
-    def get_role_by_name(db: Session, name: str):
-        return db.query(Role).filter(Role.name == name).first()
+    def __init__(self, db: Session):
+        self._db = db   #
 
-    @staticmethod
-    def get_all_roles(db: Session):
-        return db.query(Role).all()
+    def get_all(self) -> list[type[Role]]:
+        return self._db.query(Role).all()
 
-    @staticmethod
-    def get_role_by_id(db: Session, id: int):
-        return db.query(Role).filter(Role.id == id).first()
+    def get_by_id(self, role_id: int) -> Role | None:
+        return self._db.query(Role).filter(Role.id == role_id).first()
 
-    @staticmethod
-    def create_role(db: Session, **role_data):
-        db_role = Role(**role_data)
-        db.add(db_role)
-        db.commit()
-        db.refresh(db_role)
-        return db_role
+    def get_by_name(self, name: str) -> Role | None:
+        return self._db.query(Role).filter(Role.name == name).first()
+
+    def create(self, role_data: dict) -> Role:
+        role = Role(**role_data)
+        self._db.add(role)
+        return role
+
+
+
 

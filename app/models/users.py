@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from .inventoryMovements import InventoryMovement
     from .priceHistory import  PriceHistory
     from .userSessions import UserSession
-    from cashSessions import  CashSession
+    from .cashSessions import  CashSession
     from cashMovements import CashMovement
 
 

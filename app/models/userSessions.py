@@ -26,7 +26,7 @@ class UserSession(Base):
     user:Mapped["User"] = relationship(back_populates="user_sessions")
     branch:Mapped["Branch"] = relationship(back_populates="user_sessions")
 
-    cash_sessions: Mapped["CashSession"]= relationship("CashSession", back_populates="user_session")
+    cash_sessions: Mapped["CashSession"]= relationship(back_populates="user_session")
     # logs : Mapped["AuditLog"] = relationship(back_populates="user_session")
 
     def __repr__(self):

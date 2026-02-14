@@ -1,5 +1,7 @@
 import sys
 from app.database_manager import init_database
+from app.setup.installer import install_system
+
 
 def main():
 
@@ -10,9 +12,8 @@ def main():
         print(f"ERROR CRÍTICO: No se pudo configurar la base de datos.\n{resultado}")
         # En una app de escritorio, aquí podrías usar un messagebox de Tkinter o PySide
         sys.exit(1)
-
-
     print(f"Conexión exitosa: {resultado}")
+    install_system()
 
     # 3. Aquí lanzas tu aplicación principal
     print("Iniciando BenderX...")
