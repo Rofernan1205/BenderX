@@ -23,10 +23,10 @@ class AuditLog(Base):
     cash_session_id : Mapped[int] = mapped_column(ForeignKey("cash_sessions.id"), nullable=True)
     branch_id : Mapped[int] = mapped_column(ForeignKey("branches.id"), nullable=True)
 
-    user: Mapped["User"] = relationship()
-    user_session: Mapped["UserSession"] = relationship()
-    cash_register: Mapped["CashSession"] = relationship()
-    branch : Mapped["Branch"] = relationship()
+    user: Mapped["User"] = relationship("User")
+    user_session: Mapped["UserSession"] = relationship("UserSession")
+    cash_register: Mapped["CashSession"] = relationship("CashSession")
+    branch : Mapped["Branch"] = relationship("Branch")
 
 
     def __repr__(self) -> str:

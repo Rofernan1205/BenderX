@@ -19,13 +19,13 @@ class Branch(Base):
     email : Mapped[str] = mapped_column(String(150), unique=True, nullable=False)
     address : Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 
-    users: Mapped[List["User"]] = relationship(back_populates="branch")
-    products: Mapped[List["Product"]] = relationship(back_populates="branch")
-    cash_registers : Mapped[List["CashRegister"]] = relationship(back_populates="branch")
-    user_sessions: Mapped[List["UserSession"]] = relationship(back_populates="branch")
+    users: Mapped[List["User"]] = relationship("User",back_populates="branch")
+    products: Mapped[List["Product"]] = relationship("Product",back_populates="branch")
+    cash_registers : Mapped[List["CashRegister"]] = relationship("CashRegister",back_populates="branch")
+    user_sessions: Mapped[List["UserSession"]] = relationship("UserSession", back_populates="branch")
 
-    # audit_logs: Mapped[List["AuditLog"]] = relationship(back_populates="branch")
-    # cash_movements: Mapped[List["CashMovement"]] = relationship( back_populates="branch")
+    # audit_logs: Mapped[List["AuditLog"]] = relationship("AudiLog",back_populates="branch")
+    # cash_movements: Mapped[List["CashMovement"]] = relationship("CashMovement", back_populates="branch")
 
 
     def __repr__(self) -> str:

@@ -20,8 +20,8 @@ class PurchaseItem(Base):
     product_id: Mapped[int] = mapped_column(ForeignKey("products.id", ondelete="RESTRICT"), nullable=False)
     purchase_id: Mapped[int] = mapped_column(ForeignKey("purchases.id", ondelete="CASCADE"), nullable=False)
 
-    purchase: Mapped["Purchase"] = relationship(back_populates="purchase_items")
-    product: Mapped["Product"] = relationship()
+    purchase: Mapped["Purchase"] = relationship("Purchase", back_populates="purchase_items")
+    product: Mapped["Product"] = relationship("Product")
 
     def __repr__(self) -> str:
         return F"< PurchaseItem product_id : {self.product_id} >"

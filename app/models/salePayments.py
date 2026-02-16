@@ -8,6 +8,7 @@ from typing import TYPE_CHECKING, Optional
 if TYPE_CHECKING:
     from .cashSessions import CashSession
     from .paymentMethods import PaymentMethod
+    from .sales import Sale
 
 
 
@@ -24,9 +25,9 @@ class SalePayment(Base):
     reference : Mapped[Optional[str]] = mapped_column(String(100), nullable=True, index=True) # Numero de operacion
     status : Mapped[str] = mapped_column(String(50), default="completed") # Completado, pendiente, cancelado
 
-    sale: Mapped["Sale"] = relationship(back_populates="sale_payments")
-    payment_method: Mapped["PaymentMethod"] = relationship( back_populates="sale_payments")
-    cash_session: Mapped["CashSession"] = relationship(back_populates="sale_payments")
+    sale: Mapped["Sale"] = relationship("Sale", back_populates="sale_payments")
+    payment_method: Mapped["PaymentMethod"] = relationship("PaymentMethod", back_populates="sale_payments")
+    cash_session: Mapped["CashSession"] = relationship("CashSession", back_populates="sale_payments")
 
 
     def __repr__(self) -> str:

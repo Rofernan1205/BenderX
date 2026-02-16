@@ -23,11 +23,11 @@ class UserSession(Base):
     user_id : Mapped[int] = mapped_column(ForeignKey('users.id' , ondelete='CASCADE'))
     branch_id : Mapped[int] = mapped_column(ForeignKey('branches.id' , ondelete='RESTRICT'))
 
-    user:Mapped["User"] = relationship(back_populates="user_sessions")
-    branch:Mapped["Branch"] = relationship(back_populates="user_sessions")
+    user:Mapped["User"] = relationship("User", back_populates="user_sessions")
+    branch:Mapped["Branch"] = relationship("Branch", back_populates="user_sessions")
 
-    cash_sessions: Mapped["CashSession"]= relationship(back_populates="user_session")
-    # logs : Mapped["AuditLog"] = relationship(back_populates="user_session")
+    cash_sessions: Mapped["CashSession"]= relationship("CashSession", back_populates="user_session")
+    # logs : Mapped["AuditLog"] = relationship("AudiLog", back_populates="user_session")
 
     def __repr__(self):
         return f"<UserSession {self.computer_name}>"

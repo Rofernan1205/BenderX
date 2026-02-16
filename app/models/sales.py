@@ -40,9 +40,9 @@ class Sale(Base):
     customer: Mapped["Customer"] = relationship()
     cash_session: Mapped["CashSession"] = relationship(back_populates="sales")
 
-    invoices: Mapped["Invoice"] = relationship(back_populates="sale")
-    sale_payments : Mapped[List["SalePayment"]] = relationship(back_populates="sale", cascade="all, delete-orphan")
-    sale_items : Mapped[List["SaleItem"]] = relationship(back_populates="sale", cascade="all, delete-orphan")
+    invoices: Mapped["Invoice"] = relationship("Invoice", back_populates="sale")
+    sale_payments : Mapped[List["SalePayment"]] = relationship("SalePayment", back_populates="sale", cascade="all, delete-orphan")
+    sale_items : Mapped[List["SaleItem"]] = relationship("SaleItem", back_populates="sale", cascade="all, delete-orphan")
 
     def __repr__(self) -> str:
         return f"<Sale {self.invoice_number}>"

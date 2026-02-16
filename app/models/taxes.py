@@ -14,7 +14,7 @@ class Tax(Base):
     rate : Mapped[Decimal] = mapped_column(Numeric(18,2), nullable=False) # porcentaje
     is_percentage : Mapped[bool] = mapped_column(nullable=False, default=True)
 
-    product_taxes : Mapped[List["ProductTax"]] = relationship(back_populates="tax", cascade="all, delete-orphan")
+    product_taxes : Mapped[List["ProductTax"]] = relationship("ProductTax", back_populates="tax", cascade="all, delete-orphan")
 
     def __repr__(self) -> str:
         return f"<Tax code: {self.code} name: {self.name}>"

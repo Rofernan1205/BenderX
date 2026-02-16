@@ -12,7 +12,7 @@ class Category(Base):
     name : Mapped[str] = mapped_column(String(50), unique=True, nullable=False)
     description : Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     # Relationship
-    products : Mapped[List["Product"]] = relationship( back_populates="category", cascade="all, delete-orphan")
+    products : Mapped[List["Product"]] = relationship("Product", back_populates="category", cascade="all, delete-orphan")
 
     def __repr__(self) -> str:
         return f"<Category {self.name}, {self.description}>"

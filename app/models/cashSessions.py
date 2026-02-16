@@ -33,12 +33,12 @@ class CashSession(Base):
 
     user: Mapped["User"] = relationship(back_populates="cash_sessions")
     cash_register: Mapped["CashRegister"] = relationship(back_populates="cash_sessions")
-    user_session: Mapped["UserSession"] = relationship(back_populates="user_sessions")
+    user_session: Mapped["UserSession"] = relationship(back_populates="cash_sessions")
 
-    cash_movements : Mapped[List["CashMovement"]] = relationship(back_populates="cash_session", cascade="all, delete-orphan")
-    sales: Mapped[List["Sale"]] = relationship(back_populates="cash_session")
-    sale_payments: Mapped[List["SalePayment"]] = relationship(back_populates="cash_session")
-    # logs: Mapped[list["AuditLog"]] = relationship(back_populates="cash_session")
+    cash_movements : Mapped[List["CashMovement"]] = relationship("CashMovement", back_populates="cash_session", cascade="all, delete-orphan")
+    sales: Mapped[List["Sale"]] = relationship("Sale", back_populates="cash_session")
+    sale_payments: Mapped[List["SalePayment"]] = relationship("SalePayment", back_populates="cash_session")
+    # logs: Mapped[list["AuditLog"]] = relationship("AudiLog", back_populates="cash_session")
 
 
 

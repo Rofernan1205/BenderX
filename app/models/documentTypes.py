@@ -37,7 +37,7 @@ class DocumentType(Base):
     #   Factura / Boleta → False
     is_credit_note: Mapped[bool] = mapped_column(default=False)
 
-    invoices : Mapped[List["Invoice"]] = relationship(back_populates="document_type")
+    invoices : Mapped[List["Invoice"]] = relationship("Invoice", back_populates="document_type")
 
 
     def __repr__(self) -> str:

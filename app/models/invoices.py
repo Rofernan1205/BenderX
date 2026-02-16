@@ -19,8 +19,8 @@ class Invoice(Base):
     sale_id: Mapped[int] = mapped_column(ForeignKey('sales.id', ondelete="RESTRICT"), nullable=False)
     document_type_id: Mapped[int] = mapped_column(ForeignKey("document_types.id", ondelete="RESTRICT"),nullable=False )
 
-    sale :Mapped["Sale"] = Relationship(back_populates="invoices")
-    document_type:Mapped["DocumentType"] = Relationship(back_populates="invoices")
+    sale :Mapped["Sale"] = Relationship("Sale", back_populates="invoices")
+    document_type:Mapped["DocumentType"] = Relationship("DocumentType", back_populates="invoices")
 
     def __repr__(self) -> str:
         return f"Invoice(document_number={self.document_number}, amount={self.total_paid})"

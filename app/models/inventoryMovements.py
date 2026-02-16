@@ -20,8 +20,8 @@ class InventoryMovement(Base):
     user_id : Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
     product_id : Mapped[int] = mapped_column(ForeignKey("products.id"), nullable=False)
 
-    user :Mapped["User"] = relationship(back_populates="inventory_movements")
-    product :Mapped["Product"] = relationship(back_populates="inventory_movements")
+    user :Mapped["User"] = relationship("User", back_populates="inventory_movements")
+    product :Mapped["Product"] = relationship("Product", back_populates="inventory_movements")
 
     def __repr__(self) -> str:
         return f"<Movement {self.movement_type}>"

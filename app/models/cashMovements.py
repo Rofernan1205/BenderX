@@ -23,9 +23,9 @@ class CashMovement(Base):
 
     branch_id: Mapped[int] = mapped_column(ForeignKey("branches.id"))
 
-    cash_session: Mapped["CashSession"] = relationship(back_populates="cash_movements")
-    user: Mapped["User"] = relationship()
-    branch: Mapped["Branch"] = relationship()
+    cash_session: Mapped["CashSession"] = relationship("CashSession", back_populates="cash_movements")
+    user: Mapped["User"] = relationship("User")
+    branch: Mapped["Branch"] = relationship("Branch")
 
     def __repr__(self) -> str:
         return f"<CashMovement: {self.amount}>"

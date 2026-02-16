@@ -20,10 +20,10 @@ class CashRegister(Base):
     user_id : Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="RESTRICT"))
     branch_id : Mapped[int] = mapped_column(ForeignKey("branches.id", ondelete="SET NULL"))
 
-    cash_sessions : Mapped[List["CashSession"]] = relationship(back_populates="cash_register")
-    branch: Mapped["Branch"] = relationship(back_populates="cash_registers")
-    user: Mapped["User"] = relationship(back_populates="cash_registers")
-    # user_session: Mapped["UserSession"] = relationship(back_populates="cash_registers")
+    cash_sessions : Mapped[List["CashSession"]] = relationship("CashSession", back_populates="cash_register")
+    branch: Mapped["Branch"] = relationship("Branch", back_populates="cash_registers")
+    user: Mapped["User"] = relationship("User", back_populates="cash_registers")
+    # user_session: Mapped["UserSession"] = relationship("UserSession", back_populates="cash_registers")
 
     def __repr__(self) -> str:
         return f"<CashRegister: {self.name}>"

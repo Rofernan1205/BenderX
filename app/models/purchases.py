@@ -31,9 +31,10 @@ class Purchase(Base):
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="RESTRICT"), nullable=False)
     supplier_id : Mapped[int] = mapped_column(ForeignKey("suppliers.id", ondelete="RESTRICT"), nullable=False)
 
-    supplier: Mapped["Supplier"] = relationship(back_populates="purchases")
-    user: Mapped["User"] = relationship(back_populates="purchases")
-    purchase_items: Mapped[List["PurchaseItem"]] = relationship( back_populates="purchase", cascade="all, delete-orphan")
+    supplier: Mapped["Supplier"] = relationship("Supplier", back_populates="purchases")
+    user: Mapped["User"] = relationship("User", back_populates="purchases")
+
+    purchase_items: Mapped[List["PurchaseItem"]] = relationship("PurchaseItem", back_populates="purchase", cascade="all, delete-orphan")
 
     def __repr__(self) -> str:
         return f"<Purchase {self.reference_number}>"

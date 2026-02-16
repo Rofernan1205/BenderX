@@ -21,8 +21,8 @@ class PriceHistory(Base):
     user_id : Mapped[int] = mapped_column(ForeignKey('users.id'), nullable=False)
     product_id : Mapped[int] = mapped_column(ForeignKey('products.id' , ondelete='RESTRICT'), nullable=False)
 
-    products : Mapped[List["Product"]] = relationship(back_populates="price_history")
-    user : Mapped["User"] = relationship(back_populates="price_histories")
+    product : Mapped[List["Product"]] = relationship("Product", back_populates="price_histories")
+    user : Mapped["User"] = relationship("User", back_populates="price_histories")
 
     def __repr__(self) -> str:
         return f"< {self.old_price}, {self.new_price}>"

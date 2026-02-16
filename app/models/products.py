@@ -34,11 +34,11 @@ class Product(Base):
     category: Mapped["Category"] = relationship(back_populates="products")
     branch: Mapped["Branch"] = relationship( back_populates="products")
 
-    price_histories: Mapped[List["PriceHistory"]] = relationship(back_populates="product")
-    inventory_movements : Mapped[List["InventoryMovement"]] = relationship(back_populates="product")
-    product_taxes : Mapped[List["ProductTax"]] = relationship(back_populates="product")
-    # purchase_items : Mapped[List["PurchaseItem"]] = relationship(back_populates="product")
-    # sale_items : Mapped[List["SaleItem"]] = relationship(back_populates="product")
+    price_histories: Mapped[List["PriceHistory"]] = relationship("PriceHistory", back_populates="product")
+    inventory_movements : Mapped[List["InventoryMovement"]] = relationship("InventoryMovement", back_populates="product")
+    product_taxes : Mapped[List["ProductTax"]] = relationship("ProductTax", back_populates="product")
+    # purchase_items : Mapped[List["PurchaseItem"]] = relationship("PurchaseItem", back_populates="product")
+    # sale_items : Mapped[List["SaleItem"]] = relationship("SaleItem", back_populates="product")
 
 
 

@@ -9,29 +9,29 @@ class Settings:
     PROJECT_NAME: str = "BenderX"
     PROJECT_VERSION: str = "1.0.0"
 
-    # 1. Rutas con validación
-    BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent
-    DATA_DIR: Path = BASE_DIR / "data"
-    LOG_DIR: Path = BASE_DIR / "logs"
-
     def __init__(self):
-        # Creamos las carpetas al instanciar, no al definir
+        self.BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent
+        self.LOG_DIR: Path = self.BASE_DIR / "logs"
+
+        # 📌 Ruta dinámica en AppData (Windows)
+        local_appdata = Path(os.getenv("LOCALAPPDATA"))
+        self.APP_DIR = local_appdata / "BenderX"
+        self.APP_DIR.mkdir(parents=True, exist_ok=True)
+
+        self.DATABASE_PATH = self.APP_DIR / "benderx.db"
+        self.DATABASE_URL = f"sqlite:///{self.DATABASE_PATH}"
+
         self._create_directories()
 
+        self.SECRET_KEY: str = os.getenv(
+            "SECRET_KEY",
+            "dev_secret_key_change_me_in_production"
+        )
+
+        self.DEBUG: bool = os.getenv("DEBUG", "False").lower() == "true"
+
     def _create_directories(self):
-        """Crea las carpetas necesarias para la persistencia y auditoría."""
-        for directory in [self.DATA_DIR, self.LOG_DIR]:
-            directory.mkdir(exist_ok=True, parents=True)
-
-    # 2. Conexión a la base de datos con Fallback seguro
-    DATABASE_URL: str = os.getenv("DATABASE_URL", f"sqlite:///{DATA_DIR}/benderx.db")
-
-    # 3. Seguridad obligatoria para cobros e internet
-    SECRET_KEY: str = os.getenv("SECRET_KEY", "dev_secret_key_change_me_in_production")
-
-    # 4. Flags de estado
-    DEBUG: bool = os.getenv("DEBUG", "False").lower() == "true"
+        self.LOG_DIR.mkdir(exist_ok=True, parents=True)
 
 
-# INSTANCIA GLOBAL
 settings = Settings()

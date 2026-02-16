@@ -24,7 +24,7 @@ class PaymentMethod(Base):
     # Control
     is_active: Mapped[bool] = mapped_column(default=True)
 
-    sale_payments: Mapped[List["SalePayment"]] = relationship(back_populates="payment_method")
+    sale_payments: Mapped[List["SalePayment"]] = relationship("SalePayment", back_populates="payment_method")
 
     def __repr__(self) -> str:
         return f"<PaymentMethod name={self.name}>"

@@ -18,7 +18,7 @@ class Customer(Base):
     ruc: Mapped[str] = mapped_column(String(20), nullable=False, unique=True, index=True)
     address: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 
-    # sales: Mapped[List["Sale"]] = relationship(back_populates="customer")
+    # sales: Mapped[List["Sale"]] = relationship("Sale", back_populates="customer")
 
 
 

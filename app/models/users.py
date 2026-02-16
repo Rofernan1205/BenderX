@@ -38,17 +38,15 @@ class User(Base):
     branch: Mapped["Branch"] = relationship(back_populates="users")
 
 
-    purchases:Mapped[List[Purchase]] = relationship(back_populates="user")
-    inventory_movements:Mapped[List[InventoryMovement]] = relationship(back_populates="user")
-    price_histories : Mapped[List[PriceHistory]] = relationship(back_populates="user")
-    user_sessions:Mapped[List[UserSession]] = relationship(back_populates="user", cascade="all, delete-orphan")
-    cash_registers: Mapped[List[CashRegister]] = relationship(back_populates="user")
-    cash_sessions : Mapped[List[CashSession]] = relationship(back_populates="user")
-    # logs :Mapped[List["AuditLog"]] = relationship(back_populates="user")
-    # CashMovements : Mapped[List[CashMovement]] = relationship(back_populates="user")
-    # sales:Mapped[List[Sale]] = relationship(back_populates="user")
-
-
+    purchases:Mapped[List["Purchase"]] = relationship("Purchase", back_populates="user")
+    inventory_movements:Mapped[List["InventoryMovement"]] = relationship("InventoryMovement", back_populates="user")
+    price_histories : Mapped[List["PriceHistory"]] = relationship("PriceHistory", back_populates="user")
+    user_sessions:Mapped[List["UserSession"]] = relationship("UserSession", back_populates="user", cascade="all, delete-orphan")
+    cash_registers: Mapped[List["CashRegister"]] = relationship("CashRegister", back_populates="user")
+    cash_sessions : Mapped[List["CashSession"]] = relationship("CashSession", back_populates="user")
+    # logs :Mapped[List["AuditLog"]] = relationship("AudiLog", back_populates="user")
+    # CashMovements : Mapped[List["CashMovement"]] = relationship("CashMovement", back_populates="user")
+    # sales:Mapped[List["Sale"]] = relationship("Sale", back_populates="user")
 
 
 
