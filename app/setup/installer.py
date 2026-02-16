@@ -19,7 +19,6 @@ def install_system():
 
             for role in roles:
                 role_service.create_role({"name": role})
-            db.flush()
             role_id = role_service.get_role(1)
 
 

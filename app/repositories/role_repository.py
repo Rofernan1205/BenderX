@@ -1,6 +1,4 @@
 from sqlalchemy.orm import Session
-
-from app.models import Role
 from app.models.roles import Role
 
 
@@ -21,6 +19,7 @@ class RoleRepository:
     def create(self, role_data: dict) -> Role:
         role = Role(**role_data)
         self._db.add(role)
+        self._db.flush()
         return role
 
 
