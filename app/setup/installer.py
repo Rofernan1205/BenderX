@@ -4,6 +4,8 @@ from app.services.role_service import RoleService
 
 
 
+roles = ["Administrador", "Dueño", "Supervisor", "Cajero"]
+
 def install_system():
 
     with SessionLocal() as db:
@@ -15,14 +17,16 @@ def install_system():
 
             role_service = RoleService(db)
 
-            role_service.create_role({"name": "Admin"})
-            role_service.create_role({"name": "Dueño"})
-            role_service.create_role({"name": "Supervisor"})
-            role_service.create_role({"name": "Cajero"})
+            for role in roles:
+                role_service.create_role({"name": role})
+            db.flush()
+            role_id = role_service.get_role(1)
+
+
+
 
             db.commit()
-
-            print("✅ Sistema instalado correctamente.")
+            print("Datos iniciales OK ")
 
         except Exception as e:
             db.rollback()
