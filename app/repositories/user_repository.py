@@ -14,12 +14,16 @@ class UserRepository:
     def get_by_username(self, username: str) -> User | None:
         return self._db.query(User).filter(User.username == username).first()
 
+    def get_all(self, page: int , limit: int ):
+        skip = (page - 1) * limit
+        return (
+            self._db.query(User)
+            .offset(skip)
+            .limit(limit)
+            .all()
+        )
 
-    def get_all(self) -> list[type[User]]:
-        return self._db.query(User).all()
-
-
-    def create_user(self, user_data: dict) -> User | None:
+    def create(self, user_data: dict) -> User | None:
         user = User(**user_data)
         self._db.add(user)
         self._db.flush()
@@ -38,7 +42,7 @@ class UserRepository:
     def delete(self, user: User) -> None:
         self._db.delete(user)
         self._db.flush()
-        
+
 
 
 
