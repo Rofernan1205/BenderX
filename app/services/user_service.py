@@ -1,4 +1,6 @@
 from sqlalchemy.orm import Session
+
+from app.models import User
 from app.repositories.user_repository import UserRepository
 from app.utils import security as Security
 from app.core.exceptions import ValidationError, NotFoundError, UserNotFoundException
@@ -8,7 +10,7 @@ class UserService:
         self._db = db
         self._repo = UserRepository(db)
 
-    def create_user(self, user_data: dict):
+    def create_user(self, user_data: dict) -> User | None:
         # 1. Validar usuario
         if self._repo.get_by_username(user_data.get("username")):
             raise ValidationError("Usuario ya existe")
@@ -16,13 +18,12 @@ class UserService:
         password = user_data.get("password")
         if password:
             user_data["password"] = Security.hash_password(password)
-        return  self._repo.create(user_data)
-
+        user = self._repo.create(user_data)
+        return user
 
 
 
     def update_user(self, user_id: int, update_data: dict):
-
 
         user_obj = self._repo.get_by_id(user_id)
         if not user_obj:
@@ -58,3 +59,6 @@ class UserService:
 
     def get_user_by_id(self, user_id: int):
         return self._repo.get_by_id(user_id)
+
+    def get_user_by_username(self, username: str):
+        return self._repo.get_by_username(username)

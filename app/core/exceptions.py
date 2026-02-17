@@ -11,3 +11,6 @@ class NotFoundError(BenderXError):
 
 class UserNotFoundException(BenderXError):
     pass
+
+class BranchNotFoundException(BenderXError):
+    pass
