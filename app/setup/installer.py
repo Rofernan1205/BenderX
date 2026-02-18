@@ -23,7 +23,7 @@ def install_system():
             for role in roles:
                 role_service.create_role({"name": role})
             role_id = role_service.get_role(1)
-            user_service.create_user({"username": "admin", "password": ""})
+            #/ user_service.create_user({"username": "admin", "password": ""})
 
 
 

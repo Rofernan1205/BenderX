@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from app.models import User
 from app.repositories.user_repository import UserRepository
 from app.utils import security as Security
-from app.core.exceptions import ValidationError, NotFoundError, UserNotFoundException
+from app.core.exceptions import ValidationError, NotFoundError
 
 class UserService:
     def __init__(self, db: Session):
@@ -27,7 +27,7 @@ class UserService:
 
         user_obj = self._repo.get_by_id(user_id)
         if not user_obj:
-            raise UserNotFoundException(f"Usuario con ID {user_id} no existe.")
+            raise NotFoundError(f"Usuario con ID {user_id} no existe.")
 
         if "password" in update_data and update_data["password"]:
             update_data["password"] = Security.hash_password(update_data["password"])
@@ -47,7 +47,7 @@ class UserService:
 
         user_obj = self._repo.get_by_id(user_id)
         if not user_obj:
-            raise UserNotFoundException()
+            raise NotFoundError(f"Usuario con ID {user_id} no existe.")
 
         if user_obj.role == "Admin" and user_id == 1:
             raise ValidationError("No se puede eliminar usuario Administrador")

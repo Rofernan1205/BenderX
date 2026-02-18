@@ -1,6 +1,5 @@
 from sqlalchemy.orm import Session
-
-from app.core.exceptions import ValidationError,BranchNotFoundException
+from app.core.exceptions import ValidationError, NotFoundError
 from app.models import Branch
 from app.repositories.branch_repository import BranchRepository
 
@@ -18,11 +17,16 @@ class BranchService:
     def update_branch(self, branch_id: int, branch_data: dict) -> Branch | None:
         branch_obj = self._repo.get_by_id(branch_id)
         if not branch_obj:
-            raise BranchNotFoundException("Sucursal no existe")
+            raise NotFoundError("Sucursal no existe")
         for key, value in branch_data.items():
             if hasattr(branch_obj, key):
                 setattr(branch_obj, key, value)
         return self._repo.update(branch_obj)
+
+
+
+
+
 
     def get_branch(self, branch_id: int) -> Branch | None:
         return self._repo.get_by_id(branch_id)
@@ -33,7 +37,7 @@ class BranchService:
     def delete_branch(self, branch_id: int) -> None:
         branch_obj = self._repo.get_by_id(branch_id)
         if not branch_obj:
-            raise ValidationError("Sucursal no existe")
+            raise NotFoundError("Sucursal no existe")
         if branch_obj.id == "System" and branch_id == 1:
             raise ValidationError("No se puede eliminar sucursal System")
 
