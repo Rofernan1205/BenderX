@@ -1,4 +1,5 @@
-# app/core/exceptions.py
+from typing import NoReturn
+from pydantic import ValidationError as PydanticError
 
 class BenderXError(Exception):
     """
@@ -19,7 +20,18 @@ class ValidationError(BenderXError):
     - Fecha de compra es mayor a la fecha actual.
     - Campo obligatorio que viene vacío.
     """
-    pass
+    @staticmethod
+    def from_pydantic(e: PydanticError) -> NoReturn:
+        """
+        Toma un PydanticError y lo lanza como una ValidationError de BenderX.
+        """
+        error_detail = e.errors()[0]
+        # Extraemos el campo y el mensaje limpio
+        campo = error_detail['loc'][0]
+        mensaje = error_detail['msg'].replace("Value error, ", "")
+
+        # Lanzamos la propia clase con el mensaje formateado
+        raise ValidationError(f"Error en '{campo}': {mensaje}")
 
 class NotFoundError(BenderXError):
     """
