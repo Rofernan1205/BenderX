@@ -37,7 +37,7 @@ class BranchService:
             if not branch_obj:
                 raise NotFoundError("Sucursal no existe")
 
-            clean_update_data = validated_data.model_dump(exclude_unset=True)
+            clean_update_data = validated_data.model_dump(exclude_unset=True) # Detectar cambios y mantener los datos
 
             if not clean_update_data:
                 raise ValidationError("No se enviaron datos válidos para actualizar.")
@@ -50,7 +50,7 @@ class BranchService:
 
 
 
-    def get_branch(self, branch_id: int) -> Branch | None:
+    def get_branch(self, branch_id: int) -> Branch:
         return self._repo.get_by_id(branch_id)
 
     def get_all_branches(self, page: int = 1, limit: int = 20):
@@ -65,7 +65,7 @@ class BranchService:
             raise NotFoundError("Sucursal no existe")
 
         self._repo.delete(branch_obj)
-        self._db.commit()  # IMPORTANTE: el delete también necesita commit
+        self._db.flush()
 
 
 

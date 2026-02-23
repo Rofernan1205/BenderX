@@ -1,8 +1,8 @@
-"""create benderx.db
+"""initial migration
 
-Revision ID: b9d5409fb30e
+Revision ID: b4cca8ae992a
 Revises: 
-Create Date: 2026-02-13 09:20:49.654150
+Create Date: 2026-02-23 12:03:09.758751
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'b9d5409fb30e'
+revision: str = 'b4cca8ae992a'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -178,6 +178,7 @@ def upgrade() -> None:
     sa.Column('password_hash', sa.String(length=255), nullable=False),
     sa.Column('email', sa.String(length=150), nullable=False),
     sa.Column('phone', sa.String(length=15), nullable=False),
+    sa.Column('dni', sa.String(length=8), nullable=False),
     sa.Column('address', sa.Text(), nullable=True),
     sa.Column('last_login', sa.DateTime(), nullable=True),
     sa.Column('role_id', sa.Integer(), nullable=False),
@@ -192,6 +193,7 @@ def upgrade() -> None:
     sa.UniqueConstraint('email')
     )
     with op.batch_alter_table('users', schema=None) as batch_op:
+        batch_op.create_index(batch_op.f('ix_users_dni'), ['dni'], unique=True)
         batch_op.create_index(batch_op.f('ix_users_username'), ['username'], unique=True)
 
     op.create_table('cash_registers',
@@ -481,6 +483,7 @@ def downgrade() -> None:
     op.drop_table('cash_registers')
     with op.batch_alter_table('users', schema=None) as batch_op:
         batch_op.drop_index(batch_op.f('ix_users_username'))
+        batch_op.drop_index(batch_op.f('ix_users_dni'))
 
     op.drop_table('users')
     with op.batch_alter_table('products', schema=None) as batch_op:

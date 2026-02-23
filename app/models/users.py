@@ -28,6 +28,7 @@ class User(Base):
     password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
     email: Mapped[str] = mapped_column(String(150), unique=True, nullable=False)
     phone: Mapped[str] = mapped_column(String(15),nullable=False)
+    dni : Mapped[int] = mapped_column(String(8), nullable=False, unique=True, index=True)
     address: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     last_login: Mapped[Optional[datetime]] = mapped_column(DateTime, nullable=True)
 
