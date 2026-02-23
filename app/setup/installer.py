@@ -26,7 +26,7 @@ def install_system():
             for role in roles:
                 role_service.create_role({"name": role})
             role_id = role_service.get_role(1)
-            branch_service.create_branch({"name" : "  Sistema", "phone": " 94656643834", "email": "example@hotmail.com"})
+            branch_service.create_branch({"name" : "  Sistema", "phone": " 946566438", "email": "examp le@hotmail.com"})
             #/ user_service.create_user({"username": "admin", "password": ""})
 
 

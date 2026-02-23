@@ -9,15 +9,8 @@ class BranchBase(BaseModel):
     email: Optional[EmailStr] = None
     address: Optional[str] = Field(None, max_length=255)
 
-    # Se hace limpieza antes de validar
-    @field_validator('name', 'phone', 'email', mode='before')
-    @classmethod
-    def pre_clean_whitespace(cls, v):
-        if isinstance(v, str):
-            return v.strip()
-        return v
-
     # Normalización
+
     @field_validator('name')
     @classmethod
     def format_name(cls, v: Optional[str]):
