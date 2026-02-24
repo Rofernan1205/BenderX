@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 from app.models.branches import Branch
+from typing import Optional
 
 class BranchRepository:
     def __init__(self, db: Session):
@@ -20,11 +21,11 @@ class BranchRepository:
         return branch_obj
 
 
-    def get_by_id(self, id: int) -> Branch | None:
+    def get_by_id(self, id: int) -> Optional[Branch]:
         branch = self._db.query(Branch).filter(Branch.id == id).first()
         return branch
 
-    def get_by_name(self, name: str) -> Branch | None:
+    def get_by_name(self, name: str) -> Optional[Branch]:
         branch = self._db.query(Branch).filter(Branch.name == name).first()
         return branch
 
@@ -34,7 +35,7 @@ class BranchRepository:
         self._db.flush()
 
 
-    def get_all(self, page: int , limit: int) :
+    def get_all(self, page: int , limit: int) -> list[type[Branch]] :
         skip = (page - 1)* limit
         return self._db.query(Branch).offset(skip).limit(limit).all()
 

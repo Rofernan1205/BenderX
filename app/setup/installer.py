@@ -1,7 +1,5 @@
 from app.core.database import SessionLocal
 from app.models import Role
-from app.models import User
-from app.models import Branch
 from app.services.role_service import RoleService
 from app.services.user_service import UserService
 from app.services.branch_service import BranchService
@@ -25,12 +23,24 @@ def install_system():
 
             for role in roles:
                 role_service.create_role({"name": role})
-            role_id = role_service.get_role(1)
-            branch_service.create_branch({"name" : "  Sistema", "phone": " 946566438", "email": "examp le@hotmail.com"})
-            #/ user_service.create_user({"username": "admin", "password": ""})
 
+            branch_service.create_branch({"name" : "ApuByte sac", "phone": "946566438", "email": "apubyte@hotmail.com"})
+            db.flush()
+            role_obj = role_service.get_role(1)
+            branch_obj = branch_service.get_branch(1)
+            role_id = role_obj.id  # Extraemos solo el entero
+            branch_id = branch_obj.id
 
-
+            user_service.create_user({"name":"rodrigo",
+                                      "last_name" : "fernandez",
+                                      "email":"medina-1997@hotmail.com",
+                                      "password":"Rofernan1997",
+                                      "dni": "71114855",
+                                      "username": "rofernan",
+                                      "phone": "946566438",
+                                      "role_id" : role_id,
+                                      "branch_id" : branch_id,
+                                      })
 
             db.commit()
             print("Datos iniciales OK ")

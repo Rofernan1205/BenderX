@@ -1,5 +1,6 @@
 from typing import Optional
-from pydantic import BaseModel, Field, EmailStr, field_validator
+from pydantic import BaseModel, Field, EmailStr, field_validator, ConfigDict
+
 
 # --- ESQUEMA BASE ---
 class BranchBase(BaseModel):
@@ -39,7 +40,19 @@ class BranchCreate(BranchBase):
     name: str = Field(..., min_length=3, max_length=100)
     phone: str = Field(..., pattern=r'^\d{7,15}$')
     email: EmailStr # Requerido por defecto al no tener default
+    model_config = ConfigDict(
+        populate_by_name=True, # Habilita la flexibilidad de nombres
+        str_strip_whitespace=True
+    )
 
 # Dejamos sin datos por que hereda de la clase padre
 class BranchUpdate(BranchBase):
-    pass
+    model_config = ConfigDict(
+        populate_by_name=True, # Habilita la flexibilidad de nombres
+        str_strip_whitespace=True
+    )
+
+
+class BranchResponse(BranchBase):
+    id: int
+    model_config = ConfigDict(from_attributes=True)  # Crucial para leer de SQLAlchemy

@@ -1,3 +1,4 @@
+from typing import Optional
 from sqlalchemy.orm import Session
 from app.models.roles import Role
 
@@ -10,10 +11,10 @@ class RoleRepository:
     def get_all(self) -> list[type[Role]]:
         return self._db.query(Role).all()
 
-    def get_by_id(self, role_id: int) -> Role | None:
+    def get_by_id(self, role_id: int) -> Optional[Role]:
         return self._db.query(Role).filter(Role.id == role_id).first()
 
-    def get_by_name(self, name: str) -> Role | None:
+    def get_by_name(self, name: str) -> Optional[Role]:
         return self._db.query(Role).filter(Role.name == name).first()
 
     def create(self, role_data: dict) -> Role:
