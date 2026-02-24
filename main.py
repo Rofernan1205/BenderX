@@ -6,13 +6,13 @@ from app.setup.installer import install_system
 def main():
 
     print("Verificando base de datos...")
-    exito, resultado = init_database()
+    success, result = init_database()
 
-    if not exito:
-        print(f"ERROR CRÍTICO: No se pudo configurar la base de datos.\n{resultado}")
+    if not success:
+        print(f"ERROR CRÍTICO: No se pudo configurar la base de datos.\n{result}")
         # En una app de escritorio, aquí podrías usar un messagebox de Tkinter o PySide
         sys.exit(1)
-    print(f"Conexión exitosa: {resultado}")
+    print(f"Conexión exitosa: {result}")
     install_system()
 
     # 3. Aquí lanzas tu aplicación principal

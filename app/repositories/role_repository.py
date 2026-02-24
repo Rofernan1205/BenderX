@@ -6,7 +6,7 @@ from app.models.roles import Role
 class RoleRepository:
 
     def __init__(self, db: Session):
-        self._db = db   #
+        self._db = db
 
     def get_all(self) -> list[type[Role]]:
         return self._db.query(Role).all()
