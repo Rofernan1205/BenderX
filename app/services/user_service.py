@@ -1,9 +1,7 @@
 from typing import Optional, List
-
 from sqlalchemy.orm import Session
 from pydantic import ValidationError as PydanticError
-
-from app.models import User
+# from app.models import User
 from app.schemas.user_schema import UserCreate, UserUpdate, UserResponse
 from app.repositories.user_repository import UserRepository
 from app.utils import security

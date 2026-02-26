@@ -15,7 +15,32 @@ SUPER_USER = {
     "phone": "946566438"
 }
 
-DOCUMENT_TYPES = []
+DOCUMENT_TYPES = [
+        {
+            "code": "01",
+            "name": "Factura Electrónica",
+            "sequence_prefix": "F001",
+            "next_sequence": 1,
+            "requires_customer": True,
+            "is_credit_note": False
+        },
+        {
+            "code": "03",
+            "name": "Boleta de Venta Electrónica",
+            "sequence_prefix": "B001",
+            "next_sequence": 1,
+            "requires_customer": False,
+            "is_credit_note": False
+        },
+        {
+            "code": "07",
+            "name": "Nota de Crédito",
+            "sequence_prefix": "FC01",
+            "next_sequence": 1,
+            "requires_customer": True,
+            "is_credit_note": True
+        }
+    ]
 
 PAYMENT_METHODS =[]
 

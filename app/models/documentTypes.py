@@ -8,14 +8,12 @@ if TYPE_CHECKING:
 
 class DocumentType(Base):
     __tablename__ = "document_types"
-    # Validaciones no ve usuario final
-    code: Mapped[str] = mapped_column(String(20), unique=True, nullable=False) # "INVOICE", "RECEIPT", "CREDIT_NOTE"
-    name: Mapped[str] = mapped_column(String(50), nullable=False)
 
-    # Prefijo o serie del comprobante.
-    # Identifica la serie con la que se emiten los documentos.
-    # Forma parte del número final del comprobante.
-    # "F001" → F001-000123
+    code: Mapped[str] = mapped_column(String(20), unique=True, nullable=False) # '01', '02'
+    name: Mapped[str] = mapped_column(String(50), nullable=False) # Factura, Boleta
+
+
+    # "F001" -> F001-000123 Factura, "B001 -> F001-000125"
     sequence_prefix: Mapped[str] = mapped_column(String(10), nullable=False)
 
     # Próximo número correlativo a emitir para esta serie.
@@ -23,6 +21,8 @@ class DocumentType(Base):
     # Garantiza numeración ordenada y sin duplicados.
     # Ejemplo: 123 → genera F001-000123 y luego pasa a 124
     next_sequence: Mapped[int] = mapped_column(default=1)
+
+
 
     # Indica si este tipo de comprobante requiere obligatoriamente un cliente
     #   Factura → True (requiere cliente)

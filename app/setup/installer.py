@@ -1,10 +1,15 @@
 from sqlalchemy.exc import IntegrityError
 from app.core.database import SessionLocal
-from app.models import Role, User
+from app.models import Role, User, DocumentType
 from app.services.role_service import RoleService
 from app.services.user_service import UserService
 from app.services.branch_service import BranchService
-from app.setup.seed_data import  INITIAL_ROLES, INITIAL_BRANCH, SUPER_USER
+from app.services.document_type_service import DocumentTypeService
+from app.setup.seed_data import  (
+    INITIAL_ROLES,
+    INITIAL_BRANCH,
+    SUPER_USER,
+    DOCUMENT_TYPES)
 
 
 def install_system():
@@ -19,23 +24,29 @@ def install_system():
             role_service = RoleService(db)
             branch_service = BranchService(db)
             user_service = UserService(db)
+            doct_type_service = DocumentTypeService(db)
 
             print("Instalando sistema...")
 
-            # 🔹 2. Crear roles si no existen
+            # Crear roles si no existen
             for role_name in INITIAL_ROLES:
                 existing = db.query(Role).filter(Role.name == role_name).first()
                 if not existing:
                     role_service.create_role({"name": role_name})
-
             db.flush()
 
-            # 3. Crear sucursal principal
+            # Crear tipo de documento
+            for doct_type in DOCUMENT_TYPES:
+                existing = db.query(DocumentType).filter(DocumentType.name == doct_type["name"]).first()
+                if not existing:
+                        doct_type_service.create_doct_type(doct_type)
+                db.flush()
+
+            # Crear sucursal principal
             branch = branch_service.create_branch(INITIAL_BRANCH)
-
             db.flush()
 
-            # 4. Obtener rol administrador por nombre
+            # Obtener rol administrador por nombre
             admin_role = db.query(Role).filter(
                 Role.name == "Administrador"
             ).first()
@@ -44,7 +55,7 @@ def install_system():
             user_data["role_id"] = admin_role.id
             user_data["branch_id"] = branch.id
 
-            #  5. Crear usuario administrador
+            # Crear usuario administrador
             user_service.create_user(user_data)
 
             db.commit()
