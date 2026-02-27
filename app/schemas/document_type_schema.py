@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Optional
 from pydantic import (BaseModel, Field
  , field_validator, ConfigDict)
@@ -47,10 +48,17 @@ class DocumentTypeUpdate(DocumentTypeBase):
             str_strip_whitespace=True
         )
 
-class DocumentTypeResponse(DocumentTypeBase):
+class DocumentTypeResponse(BaseModel):
         id: int
         code: str
+        name: str
+        sequence_prefix: str
+        next_sequence: int
+        requires_customer: bool
+        is_credit_note: bool
         is_active: bool
+        created_at: datetime
+        updated_at: datetime
 
         model_config = ConfigDict(from_attributes=True)
 

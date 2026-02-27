@@ -42,9 +42,38 @@ DOCUMENT_TYPES = [
         }
     ]
 
+INITIAL_TAXES = [
+    {
+        "code": "1000", # Código SUNAT para IGV
+        "name": "IGV (18%)", # Impuesto General a las Ventas
+        "rate": 18.00,
+        "is_porcentage": True
+    },
+    {
+        "code": "9997", # Código SUNAT para Exonerado
+        "name": "Exonerado (0%)", # Se usa para productos de la canasta básica (papas, frutas). En el XML de SUNAT se marca como "E".
+        "rate": 0.00,
+        "is_porcentage": True
+    },
+    {
+        "code": "9998", # Código SUNAT para Inafecto
+        "name": "Inafecto (0%)", # Se usa para servicios médicos o educativos. En el XML se marca como "O".
+        "rate": 0.00,
+        "is_porcentage": True
+    },
+    {
+        "code": "7152", # Código SUNAT para Impuesto a la bolsa (ICBPER)
+        "name": "ICBPER (Bolsas)", #Si vendes bolsas plásticas, la ley exige cobrar este monto fijo (actualmente S/ 0.50
+        "rate": 0.50, # Monto fijo por unidad
+        "is_porcentage": False # Este es un monto fijo, no porcentaje
+    }
+]
+
+
+
 PAYMENT_METHODS =[]
 
-TAXES = []
+
 
 
 

@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field, EmailStr, field_validator, ConfigDict
 
@@ -53,6 +54,13 @@ class BranchUpdate(BranchBase):
     )
 
 
-class BranchResponse(BranchBase):
+class BranchResponse(BaseModel):
     id: int
+    name : str
+    phone : str
+    email : str
+    address: Optional[str] = None
+    is_active: bool
+    created_at : datetime
+    updated_at : datetime
     model_config = ConfigDict(from_attributes=True)  # Crucial para leer de SQLAlchemy

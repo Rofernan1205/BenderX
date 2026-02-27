@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field, EmailStr, field_validator, ConfigDict
 
@@ -15,7 +16,7 @@ class UserBase(BaseModel):
     # --- Normalizaciones ---
     @field_validator('name', 'last_name', mode='before')
     @classmethod
-    def format_names(cls, v):
+    def format_name(cls, v):
         return v.title().strip() if isinstance(v, str) else v
 
     @field_validator('email', 'username', 'dni', mode='before')
@@ -58,9 +59,21 @@ class UserUpdate(UserBase):
     model_config = ConfigDict(populate_by_name=True, str_strip_whitespace=True)
 
 
-class UserResponse(UserBase):
+class UserResponse(BaseModel):
     # 4. Lo que el API devuelve al mundo (Incluye IDs y fechas generadas)
     id: int
+    name: str
+    last_name: str
+    username: str
+    password_hash: str
+    email: str
+    phone: str
+    dni : int
+    address: Optional[str] = None
+    last_login: Optional[datetime] = None
+    is_active: bool
+    created_at: datetime
+    updated_at: datetime
     role_id: int
     branch_id: int
 
