@@ -13,8 +13,8 @@ class TaxService:
     def create_tax(self, tax_data: dict) -> TaxResponse:
         try:
             validated_data = TaxCreate(**tax_data) # Pydantic espera recibir kay = "value"
-            if self._rep.get_by_id(validated_data.id):
-                raise ValidationError(F"El impuesto {validated_data.id} ya existe")
+            if self._rep.get_by_code(validated_data.code):
+                raise ValidationError(F"El impuesto {validated_data.code} ya existe")
             # Preparar datos para la DB
             db_data = validated_data.model_dump()
             new_tax_obj = self._rep.create(db_data)

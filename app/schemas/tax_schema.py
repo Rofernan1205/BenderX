@@ -7,7 +7,7 @@ from pydantic import BaseModel, Field, field_validator, ConfigDict
 class TaxBase(BaseModel):
     name: Optional[str] = Field(None, min_length=3, max_length=50)
     rate: Optional[Decimal] = Field(None, ge=0)
-    is_percentage: Optional[bool] = Field(True)
+    is_percentage: Optional[bool] = Field(default=True)
 
     @field_validator('name', mode='before')
     @classmethod
