@@ -70,8 +70,73 @@ INITIAL_TAXES = [
 ]
 
 
-
-PAYMENT_METHODS =[]
+INITIAL_PAYMENT_METHODS = [
+    {
+        "code": "008",
+        "name": "EFECTIVO",
+        "fee_percentage": 0.00,
+        "fee_fixed": 0.00,
+        "requires_reference": False,
+        "allows_installments": False
+    },
+    {
+        "code": "005",
+        "name": "TARJETA DÉBITO",
+        "fee_percentage": 3.15,
+        "fee_fixed": 0.00,
+        "requires_reference": True,
+        "allows_installments": False
+    },
+    {
+        "code": "006",
+        "name": "TARJETA CRÉDITO",
+        "fee_percentage": 3.45,
+        "fee_fixed": 0.50,
+        "requires_reference": True,
+        "allows_installments": True,
+        "max_installments": 36
+    },
+    {
+        "code": "999",
+        "name": "YAPE",
+        "fee_percentage": 0.00,
+        "fee_fixed": 0.00,
+        "requires_reference": True,
+        "allows_installments": False
+    },
+    {
+        "code": "998",
+        "name": "PLIN",  # <-- Agregado
+        "fee_percentage": 0.00,
+        "fee_fixed": 0.00,
+        "requires_reference": True,
+        "allows_installments": False
+    },
+    {
+        "code": "997",
+        "name": "YAPE EMPRESA",
+        "fee_percentage": 2.95,
+        "fee_fixed": 0.00,
+        "requires_reference": True,
+        "allows_installments": False
+    },
+    {
+        "code": "996",
+        "name": "PLIN EMPRESA",
+        "fee_percentage": 2.95,
+        "fee_fixed": 0.00,
+        "requires_reference": True,
+        "allows_installments": False
+    },
+    {
+        "code": "001",
+        "name": "TRANSFERENCIA BANCARIA",
+        "fee_percentage": 0.00,
+        "fee_fixed": 0.00,
+        "requires_reference": True,
+        "allows_installments": False
+    }
+]
 
 
 

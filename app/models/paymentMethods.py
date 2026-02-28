@@ -15,7 +15,7 @@ class PaymentMethod(Base):
 
     # Reglas de negocio
     fee_percentage: Mapped[float] = mapped_column(default=0.0) # Porcenjate de comisión se aplica  al monto de pago
-    fee_fixed: Mapped[float] = mapped_column(default=0.0) # Comision fija
+    fee_fixed: Mapped[float] = mapped_column(default=0.0) # Comision fija valor 
 
     requires_reference: Mapped[bool] = mapped_column(default=False) # Indica si el pago debe tener comprobante
     allows_installments: Mapped[bool] = mapped_column(default=False) # Permite pago en cuotas

@@ -1,17 +1,19 @@
 from sqlalchemy.exc import IntegrityError
 from app.core.database import SessionLocal
-from app.models import Role, User, DocumentType, Tax
+from app.models import Role, User, DocumentType, Tax, PaymentMethod
 from app.services.role_service import RoleService
 from app.services.user_service import UserService
 from app.services.branch_service import BranchService
 from app.services.document_type_service import DocumentTypeService
 from app.services.tax_service import TaxService
+from app.services.payment_method_service import PaymentMethodService
 from app.setup.seed_data import  (
     INITIAL_ROLES,
     INITIAL_BRANCH,
     SUPER_USER,
     DOCUMENT_TYPES,
-    INITIAL_TAXES)
+    INITIAL_TAXES,
+    INITIAL_PAYMENT_METHODS)
 
 
 def install_system():
@@ -28,6 +30,7 @@ def install_system():
             user_service = UserService(db)
             doct_type_service = DocumentTypeService(db)
             tax_service = TaxService(db)
+            payment_method_service = PaymentMethodService(db)
 
             print("Iniciando instalación...")
 
@@ -51,6 +54,13 @@ def install_system():
                 existing = db.query(Tax).filter(Tax.code == tax["code"]).first()
                 if not existing:
                     tax_service.create_tax(tax)
+            db.flush()
+
+            # Crear metodos de pago
+            for payment_method in INITIAL_PAYMENT_METHODS:
+                existing = db.query(PaymentMethod).filter(PaymentMethod.code == payment_method["code"]).first()
+                if not existing:
+                    payment_method_service.create_payment_method(payment_method)
             db.flush()
 
             # Crear sucursal principal
