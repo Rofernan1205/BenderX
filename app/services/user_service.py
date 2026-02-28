@@ -93,7 +93,7 @@ class UserService:
         user_obj = self._repo.get_by_id(user_id)
         if not user_obj:
             raise NotFoundError(f"El usuario con id {user_obj.id} no existe.")
-        if user_obj.role == "Admin" and user_id == 1:
+        if user_obj.role == "Administrador" and user_id == 1:
             raise ValidationError("No se puede eliminar usuario Administrador")
         self._repo.delete(user_obj)
 
