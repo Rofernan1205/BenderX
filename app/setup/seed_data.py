@@ -138,7 +138,19 @@ INITIAL_PAYMENT_METHODS = [
     }
 ]
 
+INITIAL_CATEGORY= {
+    "name": "GENERAL",
+    "description": "Categoría base para productos nuevos o sin clasificación"
+    }
 
 
+import socket
+
+hostname = socket.gethostname().upper()
+
+SEED_CASH_REGISTER = {
+    "name": "CAJA PRINCIPAL",
+    "device_code": hostname,
+}
 
 

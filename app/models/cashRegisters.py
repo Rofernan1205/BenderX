@@ -10,8 +10,6 @@ if TYPE_CHECKING:
     # from  .userSessions import UserSession
 
 
-
-
 class CashRegister(Base):
     __tablename__ = "cash_registers"
     name: Mapped[str] = mapped_column(String(50), nullable=False, index=True)
@@ -23,6 +21,7 @@ class CashRegister(Base):
     cash_sessions : Mapped[List["CashSession"]] = relationship("CashSession", back_populates="cash_register")
     branch: Mapped["Branch"] = relationship("Branch", back_populates="cash_registers")
     user: Mapped["User"] = relationship("User", back_populates="cash_registers")
+
     # user_session: Mapped["UserSession"] = relationship("UserSession", back_populates="cash_registers")
 
     def __repr__(self) -> str:

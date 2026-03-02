@@ -7,13 +7,17 @@ from app.services.branch_service import BranchService
 from app.services.document_type_service import DocumentTypeService
 from app.services.tax_service import TaxService
 from app.services.payment_method_service import PaymentMethodService
+from app.services.category_service import CategoryService
+from app.services.cash_register_service import CashRegisterService
 from app.setup.seed_data import  (
     INITIAL_ROLES,
     INITIAL_BRANCH,
     SUPER_USER,
     DOCUMENT_TYPES,
     INITIAL_TAXES,
-    INITIAL_PAYMENT_METHODS)
+    INITIAL_PAYMENT_METHODS,
+    INITIAL_CATEGORY,
+    SEED_CASH_REGISTER)
 
 
 def install_system():
@@ -31,6 +35,8 @@ def install_system():
             doct_type_service = DocumentTypeService(db)
             tax_service = TaxService(db)
             payment_method_service = PaymentMethodService(db)
+            category_service = CategoryService(db)
+            cash_register_service = CashRegisterService(db)
 
             print("Iniciando instalación...")
 
@@ -67,6 +73,9 @@ def install_system():
             branch = branch_service.create_branch(INITIAL_BRANCH)
             db.flush()
 
+            # Crear category por defecto
+            category = category_service.create_category(INITIAL_CATEGORY)
+
             # Obtener rol administrador por nombre
             admin_role = db.query(Role).filter(
                 Role.name == "Administrador"
@@ -78,6 +87,14 @@ def install_system():
 
             # Crear usuario administrador
             user_service.create_user(user_data)
+
+            # Crear caja principal
+            super_user = db.query(User).filter(User.username == "rofernan").first()
+            cash_register_data = SEED_CASH_REGISTER.copy()
+            cash_register_data["user_id"] = super_user.id
+            cash_register_data["branch_id"] = branch.id
+            cash_register_service.create_cash_register(cash_register_data)
+
 
             db.commit()
             print("Sistema instalado correctamente.")
