@@ -13,3 +13,4 @@ class CompanyParameter(Base):
         return f"CompanyParameter('{self.name}', {self.ruc})"
 
 
+
