@@ -9,6 +9,7 @@ from app.services.tax_service import TaxService
 from app.services.payment_method_service import PaymentMethodService
 from app.services.category_service import CategoryService
 from app.services.cash_register_service import CashRegisterService
+from app.services.company_parameter_service import CompanyParameterService
 from app.setup.seed_data import  (
     INITIAL_ROLES,
     INITIAL_BRANCH,
@@ -17,7 +18,9 @@ from app.setup.seed_data import  (
     INITIAL_TAXES,
     INITIAL_PAYMENT_METHODS,
     INITIAL_CATEGORY,
-    SEED_CASH_REGISTER)
+    SEED_CASH_REGISTER,
+    COMPANY_PARAMETERS)
+from app.schemas.company_parameter_schema import CompanyParameterCreate, CompanyConfig
 
 
 def install_system():
@@ -28,7 +31,7 @@ def install_system():
             if user_exists:
                 print("Sistema ya instalado.")
                 return
-
+            # Instanciar
             role_service = RoleService(db)
             branch_service = BranchService(db)
             user_service = UserService(db)
@@ -37,6 +40,7 @@ def install_system():
             payment_method_service = PaymentMethodService(db)
             category_service = CategoryService(db)
             cash_register_service = CashRegisterService(db)
+            company_parameter_service = CompanyParameterService(db)
 
             print("Iniciando instalación...")
 
@@ -46,6 +50,15 @@ def install_system():
                 if not existing:
                     role_service.create_role({"name": role_name})
             db.flush()
+
+            # Crear parámetros de la empresa
+
+            company_schema = CompanyParameterCreate(
+                name = COMPANY_PARAMETERS["name"],
+                ruc = COMPANY_PARAMETERS["ruc"],
+                config_json=CompanyConfig(**COMPANY_PARAMETERS["config_json"])
+            )
+            company_parameter_service.create_parameter(company_schema)
 
 
             # Crear tipo de documento

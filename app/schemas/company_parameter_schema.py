@@ -25,12 +25,14 @@ class CompanyConfig(BaseModel):
 class CompanyParameterBase(BaseModel):
     name: Optional[str] = Field(None, min_length=3 ,max_length=200)
     ruc : Optional[str] = Field(None, pattern=r"^\d{11}$")
+    config_json: Optional[CompanyConfig] = None
+
 
     @field_validator('name', mode='before')
     @classmethod
     def format_name(cls, v):
         if isinstance(v, str):
-            return v.title().strip()
+            return v.upper().strip()
         return v
 
     @field_validator('ruc', mode='before')
@@ -46,7 +48,6 @@ class CompanyParameterCreate(CompanyParameterBase):
     model_config = ConfigDict(str_strip_whitespace=True)
 
 class CompanyParameterUpdate(CompanyParameterBase):
-    config_json: CompanyConfig
     model_config = ConfigDict(str_strip_whitespace=True)
 
 class CompanyParameterResponse(BaseModel):

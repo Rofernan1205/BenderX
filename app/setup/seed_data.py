@@ -153,4 +153,21 @@ SEED_CASH_REGISTER = {
     "device_code": hostname,
 }
 
+COMPANY_PARAMETERS = {
+    "name": "ApuByte",
+    "ruc": "00000000000",
+    "config_json": {
+        "currency_symbol": "S/",
+        "currency_iso": "PEN",
+        "decimal_places": 2,
+        "igv_percent": 18.0,
+        "address": "DIRECCIÓN LEGAL PRINCIPAL",
+        "phone": "946566438",
+        "email": "apubyte@hotmail.com",
+        "low_stock_threshold": 5,
+        "allow_negative_stock": False
+    }
+
+}
+
 
