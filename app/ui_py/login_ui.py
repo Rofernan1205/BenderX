@@ -309,10 +309,10 @@ class Ui_MainWindow(object):
         self.widget_user.setMaximumSize(QSize(16777215, 100))
         self.gridLayout = QGridLayout(self.widget_user)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.lineEdit = QLineEdit(self.widget_user)
-        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit_username = QLineEdit(self.widget_user)
+        self.lineEdit_username.setObjectName(u"lineEdit_username")
 
-        self.gridLayout.addWidget(self.lineEdit, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.lineEdit_username, 1, 0, 1, 1)
 
         self.labelHint_1 = QLabel(self.widget_user)
         self.labelHint_1.setObjectName(u"labelHint_1")
@@ -333,11 +333,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.labelHint_2, 0, Qt.AlignmentFlag.AlignLeft)
 
-        self.lineEdit_2 = QLineEdit(self.widget_password)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setEchoMode(QLineEdit.EchoMode.Password)
+        self.lineEdit_password = QLineEdit(self.widget_password)
+        self.lineEdit_password.setObjectName(u"lineEdit_password")
+        self.lineEdit_password.setEchoMode(QLineEdit.EchoMode.Password)
 
-        self.verticalLayout_4.addWidget(self.lineEdit_2)
+        self.verticalLayout_4.addWidget(self.lineEdit_password)
 
         self.labelLink = QLabel(self.widget_password)
         self.labelLink.setObjectName(u"labelLink")
