@@ -1,6 +1,11 @@
 from PySide6.QtWidgets import QMainWindow
 from app.ui_py.login_ui import Ui_MainWindow # Importar al archivo login.py
 
+from app.core.database import SessionLocal
+from app.services.user_service import UserService
+from pydantic import ValidationError as PydanticError
+from app.core.exceptions import ValidationError, NotFoundError
+
 
 
 class LoginWindow(QMainWindow):
@@ -18,19 +23,23 @@ class LoginWindow(QMainWindow):
 
     def leer_formulario(self):
         # 2. Obtenemos el texto de los QLineEdit
-        usuario = self.ui.lineEdit_username.text().strip()
+        username = self.ui.lineEdit_username.text().strip()
         password = self.ui.lineEdit_password.text().strip()
 
-        # 3. Verificación rápida por consola
-        print(f"--- Datos capturados ---")
-        print(f"Usuario: {usuario}")
-        print(f"Password: {password}")
+        if not username or not password:
+            self.ui.labelError.setText("Complete todos los campos")
+            return
 
-        # Ejemplo simple: si están vacíos, avisar en el label rojo
-        if not usuario or not password:
-            self.ui.labelError.setText("Debe completar todos los campos")
-        else:
-            self.ui.labelError.setText("")
-            print("Datos listos para enviar al Service...")
+        with SessionLocal() as db:
+            try:
+                users_service = UserService(db)
+                validated_user = users_service.authenticate_user(username, password)
+                print(validated_user)
+            except (NotFoundError, ValidationError) as err:
+                self.ui.labelError.setText(str(err))
+
+
+
+
 
 
