@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1076</width>
-    <height>895</height>
+    <width>928</width>
+    <height>703</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -84,7 +84,7 @@ border: 1px solid white;</string>
            <number>0</number>
           </property>
           <item>
-           <widget class="QFrame" name="frame_2">
+           <widget class="QFrame" name="layout_app">
             <property name="frameShape">
              <enum>QFrame::Shape::StyledPanel</enum>
             </property>
@@ -92,27 +92,33 @@ border: 1px solid white;</string>
              <enum>QFrame::Shadow::Raised</enum>
             </property>
             <layout class="QGridLayout" name="gridLayout">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
              <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
               <number>0</number>
              </property>
              <property name="bottomMargin">
               <number>0</number>
              </property>
-             <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter">
-              <widget class="QLabel" name="label">
+             <item row="0" column="0">
+              <widget class="QLabel" name="app_name">
                <property name="styleSheet">
                 <string notr="true">font: 700 20pt &quot;Script MT&quot;;
 color: #E7E5E4;</string>
                </property>
                <property name="text">
-                <string>ApuByte</string>
+                <string>BenderX</string>
                </property>
               </widget>
              </item>
             </layout>
            </widget>
           </item>
-          <item alignment="Qt::AlignmentFlag::AlignRight">
+          <item>
            <widget class="QFrame" name="frame_control">
             <property name="styleSheet">
              <string notr="true">QPushButton {
@@ -138,6 +144,9 @@ QPushButton:pressed {
              <enum>QFrame::Shadow::Raised</enum>
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <property name="spacing">
+              <number>0</number>
+             </property>
              <property name="leftMargin">
               <number>0</number>
              </property>
@@ -150,120 +159,510 @@ QPushButton:pressed {
              <property name="bottomMargin">
               <number>0</number>
              </property>
+             <item alignment="Qt::AlignmentFlag::AlignRight">
+              <widget class="QFrame" name="layout_control">
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Raised</enum>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <property name="spacing">
+                 <number>6</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QPushButton" name="btn_min">
+                  <property name="minimumSize">
+                   <size>
+                    <width>38</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>38</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/icons/icons/minimize.svg</normaloff>:/icons/icons/minimize.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>38</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_mid">
+                  <property name="minimumSize">
+                   <size>
+                    <width>38</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>38</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/icons/icons/windows.svg</normaloff>:/icons/icons/windows.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>38</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_max">
+                  <property name="minimumSize">
+                   <size>
+                    <width>38</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>38</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/icons/icons/maximize.svg</normaloff>:/icons/icons/maximize.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>38</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_close">
+                  <property name="minimumSize">
+                   <size>
+                    <width>38</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>38</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/icons/icons/close.svg</normaloff>:/icons/icons/close.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>38</width>
+                    <height>38</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="body_main">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QFrame" name="frame_4">
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>80</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Shape::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
              <item>
-              <widget class="QPushButton" name="btn_min">
-               <property name="minimumSize">
-                <size>
-                 <width>38</width>
-                 <height>38</height>
-                </size>
+              <widget class="QFrame" name="frame_8">
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
                </property>
-               <property name="maximumSize">
-                <size>
-                 <width>38</width>
-                 <height>38</height>
-                </size>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Raised</enum>
                </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton">
                <property name="text">
-                <string/>
-               </property>
-               <property name="icon">
-                <iconset resource="../resources/resources.qrc">
-                 <normaloff>:/icons/icons/minimize.svg</normaloff>:/icons/icons/minimize.svg</iconset>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>38</width>
-                 <height>38</height>
-                </size>
+                <string>PushButton</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btn_mid">
-               <property name="minimumSize">
-                <size>
-                 <width>38</width>
-                 <height>38</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>38</width>
-                 <height>38</height>
-                </size>
-               </property>
+              <widget class="QPushButton" name="pushButton_2">
                <property name="text">
-                <string/>
-               </property>
-               <property name="icon">
-                <iconset resource="../resources/resources.qrc">
-                 <normaloff>:/icons/icons/windows.svg</normaloff>:/icons/icons/windows.svg</iconset>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>38</width>
-                 <height>38</height>
-                </size>
+                <string>PushButton</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btn_max">
-               <property name="minimumSize">
-                <size>
-                 <width>38</width>
-                 <height>38</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>38</width>
-                 <height>38</height>
-                </size>
-               </property>
+              <widget class="QPushButton" name="pushButton_3">
                <property name="text">
-                <string/>
-               </property>
-               <property name="icon">
-                <iconset resource="../resources/resources.qrc">
-                 <normaloff>:/icons/icons/maximize.svg</normaloff>:/icons/icons/maximize.svg</iconset>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>38</width>
-                 <height>38</height>
-                </size>
+                <string>PushButton</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btn_close">
-               <property name="minimumSize">
+              <widget class="QPushButton" name="pushButton_4">
+               <property name="text">
+                <string>PushButton</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_5">
+               <property name="text">
+                <string>PushButton</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
                 <size>
-                 <width>38</width>
-                 <height>38</height>
+                 <width>18</width>
+                 <height>372</height>
                 </size>
                </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_6">
+               <property name="text">
+                <string>PushButton</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_5">
+            <property name="minimumSize">
+             <size>
+              <width>70</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Shape::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <item>
+              <widget class="QFrame" name="frame_7">
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Raised</enum>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_7">
+                <item>
+                 <widget class="QLabel" name="label_4">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_5">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_7">
+               <property name="text">
+                <string>PushButton</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_8">
+               <property name="text">
+                <string>PushButton</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_9">
+               <property name="text">
+                <string>PushButton</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_10">
+               <property name="text">
+                <string>PushButton</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_11">
+               <property name="text">
+                <string>PushButton</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>28</width>
+                 <height>372</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_12">
+               <property name="text">
+                <string>PushButton</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_6">
+            <property name="frameShape">
+             <enum>QFrame::Shape::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <item>
+              <widget class="QFrame" name="frame_2">
                <property name="maximumSize">
                 <size>
-                 <width>38</width>
-                 <height>38</height>
+                 <width>16777215</width>
+                 <height>60</height>
                 </size>
                </property>
-               <property name="text">
-                <string/>
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
                </property>
-               <property name="icon">
-                <iconset resource="../resources/resources.qrc">
-                 <normaloff>:/icons/icons/close.svg</normaloff>:/icons/icons/close.svg</iconset>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Raised</enum>
                </property>
-               <property name="iconSize">
-                <size>
-                 <width>38</width>
-                 <height>38</height>
-                </size>
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QPushButton" name="pushButton_13">
+                  <property name="text">
+                   <string>PushButton</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>89</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_8">
+                  <property name="spacing">
+                   <number>6</number>
+                  </property>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit">
+                    <property name="minimumSize">
+                     <size>
+                      <width>250</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>500</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton_14">
+                    <property name="text">
+                     <string>PushButton</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>89</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_15">
+                  <property name="text">
+                   <string>PushButton</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frame_3">
+               <property name="frameShape">
+                <enum>QFrame::Shape::StyledPanel</enum>
                </property>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Raised</enum>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QStackedWidget" name="stackedWidget">
+                  <widget class="QWidget" name="page_3"/>
+                  <widget class="QWidget" name="page_4"/>
+                 </widget>
+                </item>
+               </layout>
               </widget>
              </item>
             </layout>
@@ -274,16 +673,6 @@ QPushButton:pressed {
        </item>
        <item>
         <widget class="QFrame" name="footer_main">
-         <property name="frameShape">
-          <enum>QFrame::Shape::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Shadow::Raised</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="body_main">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -302,6 +691,18 @@ QPushButton:pressed {
          <property name="frameShadow">
           <enum>QFrame::Shadow::Raised</enum>
          </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
+           <widget class="QLabel" name="company_name">
+            <property name="styleSheet">
+             <string notr="true">font: 700 10pt &quot;Segoe UI&quot;;</string>
+            </property>
+            <property name="text">
+             <string>ApuByte © 2026</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
