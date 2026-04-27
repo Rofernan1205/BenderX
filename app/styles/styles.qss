@@ -1,0 +1,230 @@
+QMainWindow  {
+    background-color: #010409;
+    color: #c9d1d9;
+    font-family: "Segoe UI", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+QFrame {
+   background-color: #010409;
+   font-family: "Segoe UI", "Helvetica", "Arial", sans-serif;
+   color: #c9d1d9;
+    font-size: 14px;
+    outline: none;
+}
+
+QFrame[class="second-background"]{
+   background-color:#0d1117;
+}
+
+
+/*Borde general*/
+QFrame[class="borde-general"]{
+border: 2px solid #30363D;
+border-radius:10px;
+}
+
+/*Label titulo*/
+QLabel[class="label-h1"] {
+font: 900 16pt "Segoe UI";
+ color: #E6EDF3;
+
+
+}
+
+/* Label primario */
+QLabel[class="label-main"] {
+    color: #E6EDF3;
+    font-size: 14px;
+}
+
+/* Label secundario */
+QLabel[class="label-hint-bold"] {
+    color: #8B949E;
+    font-size: 14px;
+   font:bold;
+}
+
+
+/*Nombre de compañia*/
+QLabel[class="text-company"] {
+	font: 12pt "Segoe UI";
+    color: #8B949E;
+}
+
+
+/* botones de control*/
+QPushButton[class="button-control"] {
+    color: #C9D1D9;
+    border: 2px solid #30363D;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+QPushButton[class="button-control"]:hover {
+    background-color: #0D1117;
+    border: 2px solid #e2e2e2;
+}
+
+QPushButton[class="button-control"]:pressed {
+    border: 2px solid #1F6FEB;
+}
+
+
+/*INPUTS (QLineEdit) */
+QLineEdit[class="main-field"]{
+    background-color: #161B22;
+    color: #C9D1D9;
+    border: 1px solid #30363D;
+    border-radius: 6px;
+    padding: 6px 8px;
+    selection-background-color: #2F81F7;
+    selection-color: #FFFFFF;
+    font-size: 14px;
+}
+
+/* Hover */
+QLineEdit[class="main-field"]:hover {
+    border: 1px solid #8B949E;
+}
+
+/* Focus */
+QLineEdit[class="main-field"]:focus {
+    border: 1px solid #2F81F7;
+    background-color: #161B22;
+}
+
+/* Disabled */
+QLineEdit[class="main-field"]:disabled {
+    background-color: #0D1117;
+    color: #6E7681;
+    border: 1px solid #21262D;
+}
+
+/* =========================
+   BOTÓN PRINCIPAL
+   ========================= */
+QPushButton[class="main-button"] {
+    background-color: #238636;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+
+/* Hover */
+QPushButton[class="main-button"]:hover {
+    background-color: #2EA043;
+}
+
+/* Click */
+QPushButton[class="main-button"]:pressed {
+    background-color: #1A7F37;
+}
+
+/* Disabled */
+QPushButton[class="main-button"]:disabled {
+    background-color: #21262D;
+    color: #6E7681;
+}
+
+
+
+/* =========================
+   BOTÓN SECUNDARIO
+   ========================= */
+QPushButton[class="secondary-button"] {
+    background-color: #238636;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 14px;
+
+}
+
+/* Hover */
+QPushButton[class="secondary-button"]:hover {
+    background-color: #2EA043;
+}
+
+/* Click */
+QPushButton[class="secondary-button"]:pressed {
+    background-color: #1A7F37;
+}
+
+/* Disabled */
+QPushButton[class="secondary-button"]:disabled {
+    background-color: #21262D;
+    color: #6E7681;
+}
+
+/* =========================
+   BOTÓNES
+   ========================= */
+QPushButton[class="buttons"] {
+    background-color:#010409;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Hover */
+QPushButton[class="buttons"]:hover {
+    background-color: #0d1117;
+}
+
+/* Click */
+QPushButton[class="buttons"]:pressed {
+    background-color: #0d1117;
+}
+
+/* Disabled */
+QPushButton[class="buttons"]:disabled {
+    background-color: #0d1117;
+    color: #6E7681;
+}
+
+/*LINK*/
+
+QLabel[class="label-link"] {
+    color: #2F81F7;
+    text-decoration: underline;
+}
+
+QLabel[class="label-link"]:hover {
+    color: #58A6FF;
+}
+
+/*Texto error*/
+QLabel[class="label-error"]{
+color:#F85149;
+font-size: 14px;
+}
+
+/*Texto éxito*/
+QLabel[class="label-success"]{
+color:#238636;
+font-size: 14px;
+}
+
+/*borde arriba */
+QFrame[class="border-top"] {
+    border-top: 1px solid #8B949E;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+/*LABEL LOGO */
+QLabel[class="label-logo"]{
+font: 700 20pt "Script MT";
+color: #E7E5E4;
+}

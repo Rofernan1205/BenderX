@@ -1,5 +1,16 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/users.svg</file>
+    <file>icons/dashboard.svg</file>
+    <file>icons/economic.svg</file>
+    <file>icons/menu.svg</file>
+    <file>icons/package.svg</file>
+    <file>icons/pos.svg</file>
+    <file>icons/statistics.svg</file>
+    <file>icons/exit.svg</file>
+    <file>icons/settings.svg</file>
+    <file>icons/menu.svg</file>
+    <file>icons/search.svg</file>
     <file>icons/user.svg</file>
     <file>icons/close.svg</file>
     <file>icons/maximize.svg</file>

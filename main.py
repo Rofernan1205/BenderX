@@ -8,7 +8,8 @@ from app.setup.installer import install_system
 sys.path.append(os.path.join(os.path.dirname(__file__), 'app'))
 
 from PySide6.QtWidgets import QApplication
-from app.views.login_view import LoginWindow
+from app.views.login_view import LoginWindow # importar login.ui
+
 
 def main():
 
@@ -22,10 +23,14 @@ def main():
     print(f"Conexión exitosa: {result}")
     install_system()
 
-    # 1. Crear la instancia de la aplicación
+
+    #Crear la instancia de la aplicación
     app = QApplication(sys.argv)
 
-    # 2. Instanciar nuestra clase de Login
+    # Hoja de estilo
+    load_stylesheet(app)
+
+    # Instance nuestra clase de Login
     login = LoginWindow()
 
     # 3. Mostrar la ventana
@@ -34,9 +39,21 @@ def main():
     # 4. Iniciar el bucle de eventos
     sys.exit(app.exec())
 
+# Conexión a hoja de estilos general
+def load_stylesheet(app):
+    path_styles = os.path.join("app", "styles", "styles.qss")
+    if os.path.exists(path_styles):
+        with open(path_styles, "r") as f:
+            app.setStyleSheet(f.read())
+    else:
+        print("No se encuentra hoja de estilos")
+
+
+
 
 if __name__ == "__main__":
     main()
+
 
 
 

@@ -28,21 +28,20 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
+        self.centralwidget.setStyleSheet(u"")
         self.horizontalLayout_3 = QHBoxLayout(self.centralwidget)
         self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.frame = QFrame(self.centralwidget)
         self.frame.setObjectName(u"frame")
-        self.frame.setStyleSheet(u"background-color: rgb(21, 26, 33);\n"
-"\n"
-"   \n"
-"\n"
-"")
+        self.frame.setStyleSheet(u"")
         self.frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.frame)
+        self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.header_frame = QFrame(self.frame)
         self.header_frame.setObjectName(u"header_frame")
         self.header_frame.setMinimumSize(QSize(0, 40))
@@ -54,46 +53,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.ad = QFrame(self.header_frame)
-        self.ad.setObjectName(u"ad")
-        self.ad.setFrameShape(QFrame.Shape.StyledPanel)
-        self.ad.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.ad)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.company = QLabel(self.ad)
-        self.company.setObjectName(u"company")
-        font = QFont()
-        font.setFamilies([u"Script MT"])
-        font.setPointSize(20)
-        font.setBold(True)
-        font.setItalic(False)
-        self.company.setFont(font)
-        self.company.setStyleSheet(u"font: 700 20pt \"Script MT\";\n"
-"color: #E7E5E4;")
-
-        self.verticalLayout_3.addWidget(self.company, 0, Qt.AlignmentFlag.AlignLeft)
-
-
-        self.horizontalLayout.addWidget(self.ad)
-
         self.control = QFrame(self.header_frame)
         self.control.setObjectName(u"control")
-        self.control.setStyleSheet(u"QPushButton {\n"
-"    color: #C9D1D9;\n"
-"    border: 2px solid #30363D; \n"
-"    border-radius: 8px;\n"
-"    padding: 8px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #0D1117; \n"
-"    border: 2px solid #e2e2e2;   \n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    border: 2px solid #1F6FEB;\n"
-"}")
+        self.control.setStyleSheet(u"")
         self.control.setFrameShape(QFrame.Shape.StyledPanel)
         self.control.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.control)
@@ -157,6 +119,7 @@ class Ui_MainWindow(object):
 
         self.body_frame = QFrame(self.frame)
         self.body_frame.setObjectName(u"body_frame")
+        self.body_frame.setMaximumSize(QSize(16777215, 16777215))
         self.body_frame.setStyleSheet(u"")
         self.body_frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.body_frame.setFrameShadow(QFrame.Shadow.Raised)
@@ -166,121 +129,7 @@ class Ui_MainWindow(object):
         self.box_login.setObjectName(u"box_login")
         self.box_login.setMinimumSize(QSize(350, 400))
         self.box_login.setMaximumSize(QSize(450, 550))
-        self.box_login.setStyleSheet(u"QWidget {\n"
-"    background-color: #0D1117;\n"
-"    color: #C9D1D9;\n"
-"    font-family: \"Segoe UI\";\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"/* =========================\n"
-"   LABELS\n"
-"   ========================= */\n"
-"QLabel {\n"
-"    color: #C9D1D9;\n"
-"    font-size: 14px;\n"
-"}\n"
-"\n"
-"/* Label secundario */\n"
-"QLabel#labelHint {\n"
-"    color: #8B949E;\n"
-"    font-size: 14px;\n"
-"}\n"
-"\n"
-"/* Label error */\n"
-"QLabel#labelError {\n"
-"    color: #F85149;\n"
-"}\n"
-"\n"
-"/* =========================\n"
-"   INPUTS (QLineEdit)\n"
-"   ========================= */\n"
-"QLineEdit {\n"
-"    background-color: #161B22;\n"
-"    color: #C9D1D9;\n"
-"    border: 1px solid #30363D;\n"
-"    border-radius: 6px;\n"
-"    padding: 6px 8px;\n"
-"    selection-background-color: #2F81F7;\n"
-"    selection-color: #FFFFFF;\n"
-"    font-size: 14px;\n"
-"}\n"
-"\n"
-"/* Hover */\n"
-"QLineEdit:hover {\n"
-"    border: 1px solid #8B949E;\n"
-"}\n"
-"\n"
-"/* Focus */\n"
-"QLineEdit:focus {\n"
-"    border: 1px solid #2F81F7;\n"
-""
-                        "    background-color: #0D1117;\n"
-"}\n"
-"\n"
-"/* Disabled */\n"
-"QLineEdit:disabled {\n"
-"    background-color: #0D1117;\n"
-"    color: #6E7681;\n"
-"    border: 1px solid #21262D;\n"
-"}\n"
-"\n"
-"/* =========================\n"
-"   BOT\u00d3N PRINCIPAL\n"
-"   ========================= */\n"
-"QPushButton {\n"
-"    background-color: #238636;\n"
-"    color: white;\n"
-"    border: none;\n"
-"    border-radius: 6px;\n"
-"    padding: 8px;\n"
-"    font-weight: bold;\n"
-"    font-size: 15px;\n"
-"    \n"
-"}\n"
-"\n"
-"/* Hover */\n"
-"QPushButton:hover {\n"
-"    background-color: #2EA043;\n"
-"}\n"
-"\n"
-"/* Click */\n"
-"QPushButton:pressed {\n"
-"    background-color: #1A7F37;\n"
-"}\n"
-"\n"
-"/* Disabled */\n"
-"QPushButton:disabled {\n"
-"    background-color: #21262D;\n"
-"    color: #6E7681;\n"
-"}\n"
-"\n"
-"/* =========================\n"
-"   BOT\u00d3N SECUNDARIO\n"
-"   ========================= */\n"
-"QPushButton#btnSecondary {\n"
-"    background-color: transparent;\n"
-"    border: 1px solid #30363D;\n"
-"    color: #C9D1D9;\n"
-""
-                        "}\n"
-"\n"
-"QPushButton#btnSecondary:hover {\n"
-"    background-color: #161B22;\n"
-"    border: 1px solid #8B949E;\n"
-"}\n"
-"\n"
-"/* =========================\n"
-"   LINK (RECUPERAR PASSWORD)\n"
-"   ========================= */\n"
-"QLabel#labelLink {\n"
-"    color: #2F81F7;\n"
-"    text-decoration: underline;\n"
-"}\n"
-"\n"
-"QLabel#labelLink:hover {\n"
-"    color: #58A6FF;\n"
-"}")
+        self.box_login.setStyleSheet(u"")
         self.box_login.setFrameShape(QFrame.Shape.StyledPanel)
         self.box_login.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout = QVBoxLayout(self.box_login)
@@ -291,7 +140,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.label = QLabel(self.widget)
         self.label.setObjectName(u"label")
-        self.label.setStyleSheet(u"font: 900 16pt \"Segoe UI\";")
+        self.label.setStyleSheet(u"")
 
         self.verticalLayout_6.addWidget(self.label, 0, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignVCenter)
 
@@ -314,10 +163,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.lineEdit_username, 1, 0, 1, 1)
 
-        self.labelHint_1 = QLabel(self.widget_user)
-        self.labelHint_1.setObjectName(u"labelHint_1")
+        self.labelUsername = QLabel(self.widget_user)
+        self.labelUsername.setObjectName(u"labelUsername")
 
-        self.gridLayout.addWidget(self.labelHint_1, 0, 0, 1, 1, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignBottom)
+        self.gridLayout.addWidget(self.labelUsername, 0, 0, 1, 1, Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignBottom)
 
 
         self.verticalLayout.addWidget(self.widget_user)
@@ -328,10 +177,10 @@ class Ui_MainWindow(object):
         self.widget_password.setMaximumSize(QSize(16777215, 120))
         self.verticalLayout_4 = QVBoxLayout(self.widget_password)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.labelHint_2 = QLabel(self.widget_password)
-        self.labelHint_2.setObjectName(u"labelHint_2")
+        self.labelPassword = QLabel(self.widget_password)
+        self.labelPassword.setObjectName(u"labelPassword")
 
-        self.verticalLayout_4.addWidget(self.labelHint_2, 0, Qt.AlignmentFlag.AlignLeft)
+        self.verticalLayout_4.addWidget(self.labelPassword, 0, Qt.AlignmentFlag.AlignLeft)
 
         self.lineEdit_password = QLineEdit(self.widget_password)
         self.lineEdit_password.setObjectName(u"lineEdit_password")
@@ -339,11 +188,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.lineEdit_password)
 
-        self.labelLink = QLabel(self.widget_password)
-        self.labelLink.setObjectName(u"labelLink")
-        self.labelLink.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.labelForgotPass = QLabel(self.widget_password)
+        self.labelForgotPass.setObjectName(u"labelForgotPass")
+        self.labelForgotPass.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
-        self.verticalLayout_4.addWidget(self.labelLink, 0, Qt.AlignmentFlag.AlignRight)
+        self.verticalLayout_4.addWidget(self.labelForgotPass, 0, Qt.AlignmentFlag.AlignRight)
 
 
         self.verticalLayout.addWidget(self.widget_password)
@@ -367,6 +216,22 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.body_frame)
 
+        self.footer_frame = QFrame(self.frame)
+        self.footer_frame.setObjectName(u"footer_frame")
+        self.footer_frame.setMinimumSize(QSize(0, 40))
+        self.footer_frame.setMaximumSize(QSize(16777215, 40))
+        self.footer_frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.footer_frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_5 = QHBoxLayout(self.footer_frame)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.company = QLabel(self.footer_frame)
+        self.company.setObjectName(u"company")
+
+        self.horizontalLayout_5.addWidget(self.company, 0, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignVCenter)
+
+
+        self.verticalLayout_2.addWidget(self.footer_frame)
+
 
         self.horizontalLayout_3.addWidget(self.frame)
 
@@ -379,16 +244,31 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.company.setText(QCoreApplication.translate("MainWindow", u"ApuByte", None))
         self.min.setText("")
+        self.min.setProperty(u"class", QCoreApplication.translate("MainWindow", u"button-control", None))
         self.mid.setText("")
+        self.mid.setProperty(u"class", QCoreApplication.translate("MainWindow", u"button-control", None))
         self.max.setText("")
+        self.max.setProperty(u"class", QCoreApplication.translate("MainWindow", u"button-control", None))
         self.close.setText("")
+        self.close.setProperty(u"class", QCoreApplication.translate("MainWindow", u"button-control", None))
+        self.box_login.setProperty(u"class", QCoreApplication.translate("MainWindow", u"borde-general", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Inicie sesi\u00f3n en BenderX", None))
+        self.label.setProperty(u"class", QCoreApplication.translate("MainWindow", u"label-h1", None))
         self.labelError.setText(QCoreApplication.translate("MainWindow", u"Mensaje error", None))
-        self.labelHint_1.setText(QCoreApplication.translate("MainWindow", u"Usuario", None))
-        self.labelHint_2.setText(QCoreApplication.translate("MainWindow", u"Contrase\u00f1a", None))
-        self.labelLink.setText(QCoreApplication.translate("MainWindow", u"\u00bfOlvidastes tu contrase\u00f1a?", None))
+        self.labelError.setProperty(u"class", QCoreApplication.translate("MainWindow", u"label-error", None))
+        self.lineEdit_username.setProperty(u"class", QCoreApplication.translate("MainWindow", u"main-field", None))
+        self.labelUsername.setText(QCoreApplication.translate("MainWindow", u"Usuario", None))
+        self.labelUsername.setProperty(u"class", QCoreApplication.translate("MainWindow", u"label-hint-bold", None))
+        self.labelPassword.setText(QCoreApplication.translate("MainWindow", u"Contrase\u00f1a", None))
+        self.labelPassword.setProperty(u"class", QCoreApplication.translate("MainWindow", u"label-hint-bold", None))
+        self.lineEdit_password.setProperty(u"class", QCoreApplication.translate("MainWindow", u"main-field", None))
+        self.labelForgotPass.setText(QCoreApplication.translate("MainWindow", u"\u00bfOlvidastes tu contrase\u00f1a?", None))
+        self.labelForgotPass.setProperty(u"class", QCoreApplication.translate("MainWindow", u"label-link", None))
         self.buttonSession.setText(QCoreApplication.translate("MainWindow", u"Iniciar Sesi\u00f3n", None))
+        self.buttonSession.setProperty(u"class", QCoreApplication.translate("MainWindow", u"main-button", None))
+        self.footer_frame.setProperty(u"class", QCoreApplication.translate("MainWindow", u"border-top", None))
+        self.company.setText(QCoreApplication.translate("MainWindow", u"ApuByte @ 2026 ", None))
+        self.company.setProperty(u"class", QCoreApplication.translate("MainWindow", u"text-company", None))
     # retranslateUi
 

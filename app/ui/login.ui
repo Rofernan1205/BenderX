@@ -14,9 +14,176 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QMainWindow  {
+    background-color: #0D1117;
+    color: #c9d1d9;
+    font-family: &quot;Segoe UI&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+QFrame {
+   background-color: #0D1117;
+   font-family: &quot;Segoe UI&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;
+   color: #c9d1d9;
+    font-size: 14px;
+    outline: none;
+}
+
+QFrame[class=&quot;second-background&quot;]{
+   background-color: #161B22;
+}
+
+
+/*Borde general*/
+QFrame[class=&quot;borde-general&quot;]{
+border: 2px solid #30363D;
+border-radius:10px;
+}
+
+/*Label titulo*/
+QLabel[class=&quot;label-h1&quot;] {
+font: 900 16pt &quot;Segoe UI&quot;;
+ color: #E6EDF3;
+
+
+}
+
+/* Label primario */
+QLabel[class=&quot;label-main&quot;] {
+    color: #E6EDF3;
+    font-size: 14px;
+}
+
+/* Label secundario */
+QLabel[class=&quot;label-hint-bold&quot;] {
+    color: #8B949E;
+    font-size: 14px;
+   font:bold;
+}
+
+
+/*Nombre de compañia*/
+QLabel[class=&quot;text-company&quot;] {
+	font: 12pt &quot;Segoe UI&quot;;
+    color: #8B949E;
+}
+
+
+/* botones de control*/
+QPushButton[class=&quot;button-control&quot;] {
+    color: #C9D1D9;
+    border: 2px solid #30363D; 
+    border-radius: 8px;
+    padding: 8px;
+}
+
+QPushButton[class=&quot;button-control&quot;]:hover {
+    background-color: #0D1117; 
+    border: 2px solid #e2e2e2;   
+}
+
+QPushButton[class=&quot;button-control&quot;]:pressed {
+    border: 2px solid #1F6FEB;
+}
+
+
+/*INPUTS (QLineEdit) */
+QLineEdit[class=&quot;main-field&quot;]{
+    background-color: #161B22;
+    color: #C9D1D9;
+    border: 1px solid #30363D;
+    border-radius: 6px;
+    padding: 6px 8px;
+    selection-background-color: #2F81F7;
+    selection-color: #FFFFFF;
+    font-size: 14px;
+}
+
+/* Hover */
+QLineEdit[class=&quot;main-field&quot;]:hover {
+    border: 1px solid #8B949E;
+}
+
+/* Focus */
+QLineEdit[class=&quot;main-field&quot;]:focus {
+    border: 1px solid #2F81F7;
+    background-color: #161B22;
+}
+
+/* Disabled */
+QLineEdit[class=&quot;main-field&quot;]:disabled {
+    background-color: #0D1117;
+    color: #6E7681;
+    border: 1px solid #21262D;
+}
+
+/* =========================
+   BOTÓN PRINCIPAL
+   ========================= */
+QPushButton[class=&quot;main-button&quot;] {
+    background-color: #238636;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    
+}
+
+/* Hover */
+QPushButton[class=&quot;main-button&quot;]:hover {
+    background-color: #2EA043;
+}
+
+/* Click */
+QPushButton[class=&quot;main-button&quot;]:pressed {
+    background-color: #1A7F37;
+}
+
+/* Disabled */
+QPushButton[class=&quot;main-button&quot;]:disabled {
+    background-color: #21262D;
+    color: #6E7681;
+}
+
+
+QLabel[class=&quot;label-link&quot;] {
+    color: #2F81F7;
+    text-decoration: underline;
+}
+
+QLabel[class=&quot;label-link&quot;]:hover {
+    color: #58A6FF;
+}
+
+/*Texto error*/
+QLabel[class=&quot;label-error&quot;]{
+color:#F85149;
+font-size: 14px;
+}
+
+/*Texto éxito*/
+QLabel[class=&quot;label-success&quot;]{
+color:#238636;
+font-size: 14px;
+}
+
+/*borde arriba */
+QFrame[class=&quot;border-top&quot;] {
+    border-top: 1px solid #8B949E;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <layout class="QHBoxLayout" name="horizontalLayout_3">
     <property name="spacing">
      <number>0</number>
@@ -36,11 +203,7 @@
     <item>
      <widget class="QFrame" name="frame">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(21, 26, 33);
-
-   
-
-</string>
+       <string notr="true"/>
       </property>
       <property name="frameShape">
        <enum>QFrame::Shape::StyledPanel</enum>
@@ -49,6 +212,21 @@
        <enum>QFrame::Shadow::Raised</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QFrame" name="header_frame">
          <property name="minimumSize">
@@ -88,67 +266,10 @@
           <property name="bottomMargin">
            <number>0</number>
           </property>
-          <item>
-           <widget class="QFrame" name="ad">
-            <property name="frameShape">
-             <enum>QFrame::Shape::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Shadow::Raised</enum>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_3">
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
-             <item alignment="Qt::AlignmentFlag::AlignLeft">
-              <widget class="QLabel" name="company">
-               <property name="font">
-                <font>
-                 <family>Script MT</family>
-                 <pointsize>20</pointsize>
-                 <italic>false</italic>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">font: 700 20pt &quot;Script MT&quot;;
-color: #E7E5E4;</string>
-               </property>
-               <property name="text">
-                <string>ApuByte</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
           <item alignment="Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignVCenter">
            <widget class="QFrame" name="control">
             <property name="styleSheet">
-             <string notr="true">QPushButton {
-    color: #C9D1D9;
-    border: 2px solid #30363D; 
-    border-radius: 8px;
-    padding: 8px;
-}
-
-QPushButton:hover {
-    background-color: #0D1117; 
-    border: 2px solid #e2e2e2;   
-}
-
-QPushButton:pressed {
-    border: 2px solid #1F6FEB;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="frameShape">
              <enum>QFrame::Shape::StyledPanel</enum>
@@ -208,6 +329,9 @@ QPushButton:pressed {
                  <height>38</height>
                 </size>
                </property>
+               <property name="class" stdset="0">
+                <string>button-control</string>
+               </property>
               </widget>
              </item>
              <item>
@@ -236,6 +360,9 @@ QPushButton:pressed {
                  <width>38</width>
                  <height>38</height>
                 </size>
+               </property>
+               <property name="class" stdset="0">
+                <string>button-control</string>
                </property>
               </widget>
              </item>
@@ -269,6 +396,9 @@ QPushButton:pressed {
                  <height>30</height>
                 </size>
                </property>
+               <property name="class" stdset="0">
+                <string>button-control</string>
+               </property>
               </widget>
              </item>
              <item>
@@ -301,6 +431,9 @@ QPushButton:pressed {
                  <height>38</height>
                 </size>
                </property>
+               <property name="class" stdset="0">
+                <string>button-control</string>
+               </property>
               </widget>
              </item>
             </layout>
@@ -311,6 +444,12 @@ QPushButton:pressed {
        </item>
        <item>
         <widget class="QFrame" name="body_frame">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true"/>
          </property>
@@ -336,125 +475,16 @@ QPushButton:pressed {
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
-    background-color: #0D1117;
-    color: #C9D1D9;
-    font-family: &quot;Segoe UI&quot;;
-    border-radius: 10px;
-}
-
-/* =========================
-   LABELS
-   ========================= */
-QLabel {
-    color: #C9D1D9;
-    font-size: 14px;
-}
-
-/* Label secundario */
-QLabel#labelHint {
-    color: #8B949E;
-    font-size: 14px;
-}
-
-/* Label error */
-QLabel#labelError {
-    color: #F85149;
-}
-
-/* =========================
-   INPUTS (QLineEdit)
-   ========================= */
-QLineEdit {
-    background-color: #161B22;
-    color: #C9D1D9;
-    border: 1px solid #30363D;
-    border-radius: 6px;
-    padding: 6px 8px;
-    selection-background-color: #2F81F7;
-    selection-color: #FFFFFF;
-    font-size: 14px;
-}
-
-/* Hover */
-QLineEdit:hover {
-    border: 1px solid #8B949E;
-}
-
-/* Focus */
-QLineEdit:focus {
-    border: 1px solid #2F81F7;
-    background-color: #0D1117;
-}
-
-/* Disabled */
-QLineEdit:disabled {
-    background-color: #0D1117;
-    color: #6E7681;
-    border: 1px solid #21262D;
-}
-
-/* =========================
-   BOTÓN PRINCIPAL
-   ========================= */
-QPushButton {
-    background-color: #238636;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 8px;
-    font-weight: bold;
-    font-size: 15px;
-    
-}
-
-/* Hover */
-QPushButton:hover {
-    background-color: #2EA043;
-}
-
-/* Click */
-QPushButton:pressed {
-    background-color: #1A7F37;
-}
-
-/* Disabled */
-QPushButton:disabled {
-    background-color: #21262D;
-    color: #6E7681;
-}
-
-/* =========================
-   BOTÓN SECUNDARIO
-   ========================= */
-QPushButton#btnSecondary {
-    background-color: transparent;
-    border: 1px solid #30363D;
-    color: #C9D1D9;
-}
-
-QPushButton#btnSecondary:hover {
-    background-color: #161B22;
-    border: 1px solid #8B949E;
-}
-
-/* =========================
-   LINK (RECUPERAR PASSWORD)
-   ========================= */
-QLabel#labelLink {
-    color: #2F81F7;
-    text-decoration: underline;
-}
-
-QLabel#labelLink:hover {
-    color: #58A6FF;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="frameShape">
              <enum>QFrame::Shape::StyledPanel</enum>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Shadow::Raised</enum>
+            </property>
+            <property name="class" stdset="0">
+             <string>borde-general</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout">
              <item>
@@ -463,10 +493,13 @@ QLabel#labelLink:hover {
                 <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
                  <widget class="QLabel" name="label">
                   <property name="styleSheet">
-                   <string notr="true">font: 900 16pt &quot;Segoe UI&quot;;</string>
+                   <string notr="true"/>
                   </property>
                   <property name="text">
                    <string>Inicie sesión en BenderX</string>
+                  </property>
+                  <property name="class" stdset="0">
+                   <string>label-h1</string>
                   </property>
                  </widget>
                 </item>
@@ -474,6 +507,9 @@ QLabel#labelLink:hover {
                  <widget class="QLabel" name="labelError">
                   <property name="text">
                    <string>Mensaje error</string>
+                  </property>
+                  <property name="class" stdset="0">
+                   <string>label-error</string>
                   </property>
                  </widget>
                 </item>
@@ -496,12 +532,19 @@ QLabel#labelLink:hover {
                </property>
                <layout class="QGridLayout" name="gridLayout">
                 <item row="1" column="0">
-                 <widget class="QLineEdit" name="lineEdit_username"/>
+                 <widget class="QLineEdit" name="lineEdit_username">
+                  <property name="class" stdset="0">
+                   <string>main-field</string>
+                  </property>
+                 </widget>
                 </item>
                 <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignBottom">
-                 <widget class="QLabel" name="labelHint_1">
+                 <widget class="QLabel" name="labelUsername">
                   <property name="text">
                    <string>Usuario</string>
+                  </property>
+                  <property name="class" stdset="0">
+                   <string>label-hint-bold</string>
                   </property>
                  </widget>
                 </item>
@@ -524,9 +567,12 @@ QLabel#labelLink:hover {
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_4">
                 <item alignment="Qt::AlignmentFlag::AlignLeft">
-                 <widget class="QLabel" name="labelHint_2">
+                 <widget class="QLabel" name="labelPassword">
                   <property name="text">
                    <string>Contraseña</string>
+                  </property>
+                  <property name="class" stdset="0">
+                   <string>label-hint-bold</string>
                   </property>
                  </widget>
                 </item>
@@ -535,15 +581,21 @@ QLabel#labelLink:hover {
                   <property name="echoMode">
                    <enum>QLineEdit::EchoMode::Password</enum>
                   </property>
+                  <property name="class" stdset="0">
+                   <string>main-field</string>
+                  </property>
                  </widget>
                 </item>
                 <item alignment="Qt::AlignmentFlag::AlignRight">
-                 <widget class="QLabel" name="labelLink">
+                 <widget class="QLabel" name="labelForgotPass">
                   <property name="cursor">
                    <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="text">
                    <string>¿Olvidastes tu contraseña?</string>
+                  </property>
+                  <property name="class" stdset="0">
+                   <string>label-link</string>
                   </property>
                  </widget>
                 </item>
@@ -561,12 +613,52 @@ QLabel#labelLink:hover {
                   <property name="text">
                    <string>Iniciar Sesión</string>
                   </property>
+                  <property name="class" stdset="0">
+                   <string>main-button</string>
+                  </property>
                  </widget>
                 </item>
                </layout>
               </widget>
              </item>
             </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="footer_frame">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <property name="class" stdset="0">
+          <string>border-top</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
+           <widget class="QLabel" name="company">
+            <property name="text">
+             <string>ApuByte @ 2026 </string>
+            </property>
+            <property name="class" stdset="0">
+             <string>text-company</string>
+            </property>
            </widget>
           </item>
          </layout>
