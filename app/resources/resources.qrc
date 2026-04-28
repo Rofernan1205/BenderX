@@ -18,6 +18,6 @@
     <file>icons/windows.svg</file>
   </qresource>
   <qresource prefix="images">
-    <file>images/apubyte.jpg</file>
+    <file>images/apubyte.png</file>
   </qresource>
 </RCC>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1124</width>
-    <height>895</height>
+    <width>932</width>
+    <height>695</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,13 +21,21 @@
     font-size: 14px;
     outline: none;
 }
+QLabel[class=&quot;foto-circular&quot;] {
+    border: 2px solid #30363d; 
+    border-radius: 50px;      
+    background-color: #161b22; 
+}
+
+
+
 QFrame {
    background-color: #010409;
    font-family: &quot;Segoe UI&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;
    color: #c9d1d9;
     font-size: 14px;
     outline: none;
-    border:1px solid red;
+   
 }
 
 QFrame[class=&quot;second-background&quot;]{
@@ -748,15 +756,13 @@ color: #E7E5E4;
                       </size>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">
-
-</string>
+                      <string notr="true"/>
                      </property>
                      <property name="text">
                       <string/>
                      </property>
                      <property name="pixmap">
-                      <pixmap resource="../resources/resources.qrc">:/images/images/apubyte.jpg</pixmap>
+                      <pixmap resource="../resources/resources.qrc">:/images/images/apubyte.png</pixmap>
                      </property>
                      <property name="scaledContents">
                       <bool>true</bool>
@@ -1017,7 +1023,7 @@ color: #E7E5E4;
                       <string/>
                      </property>
                      <property name="pixmap">
-                      <pixmap resource="../resources/resources.qrc">:/images/images/apubyte.jpg</pixmap>
+                      <pixmap resource="../resources/resources.qrc">:/images/images/apubyte.png</pixmap>
                      </property>
                      <property name="scaledContents">
                       <bool>true</bool>
@@ -1028,6 +1034,9 @@ color: #E7E5E4;
                     <widget class="QLabel" name="label_5">
                      <property name="text">
                       <string>ApuByte</string>
+                     </property>
+                     <property name="class" stdset="0">
+                      <string>label-hint-bold</string>
                      </property>
                     </widget>
                    </item>
@@ -1054,38 +1063,6 @@ color: #E7E5E4;
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
                     <normaloff>:/icons/icons/dashboard.svg</normaloff>:/icons/icons/dashboard.svg</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>24</width>
-                    <height>24</height>
-                   </size>
-                  </property>
-                  <property name="class" stdset="0">
-                   <string>button-menu</string>
-                  </property>
-                 </widget>
-                </item>
-                <item alignment="Qt::AlignmentFlag::AlignVCenter">
-                 <widget class="QPushButton" name="pushButton_8">
-                  <property name="minimumSize">
-                   <size>
-                    <width>60</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>120</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>Almacen  </string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/icons/icons/package.svg</normaloff>:/icons/icons/package.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1130,10 +1107,10 @@ color: #E7E5E4;
                   </property>
                  </widget>
                 </item>
-                <item alignment="Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter">
+                <item alignment="Qt::AlignmentFlag::AlignVCenter">
                  <widget class="QPushButton" name="pushButton_10">
                   <property name="text">
-                   <string>Ventas</string>
+                   <string>Ventas      </string>
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
@@ -1153,14 +1130,40 @@ color: #E7E5E4;
                 <item>
                  <widget class="QPushButton" name="pushButton_11">
                   <property name="text">
-                   <string>PushButton</string>
+                   <string>Reportes  </string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/icons/icons/statistics.svg</normaloff>:/icons/icons/statistics.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                  <property name="class" stdset="0">
+                   <string>button-menu</string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <widget class="QPushButton" name="pushButton_14">
                   <property name="text">
-                   <string>PushButton</string>
+                   <string>Usuarios </string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/icons/icons/users.svg</normaloff>:/icons/icons/users.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                  <property name="class" stdset="0">
+                   <string>button-menu</string>
                   </property>
                  </widget>
                 </item>
@@ -1180,14 +1183,40 @@ color: #E7E5E4;
                 <item>
                  <widget class="QPushButton" name="pushButton_16">
                   <property name="text">
-                   <string>PushButton</string>
+                   <string>Config     </string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/icons/icons/settings.svg</normaloff>:/icons/icons/settings.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                  <property name="class" stdset="0">
+                   <string>button-menu</string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <widget class="QPushButton" name="pushButton_12">
                   <property name="text">
-                   <string>PushButton</string>
+                   <string>Salir      </string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/icons/icons/exit.svg</normaloff>:/icons/icons/exit.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>24</width>
+                    <height>24</height>
+                   </size>
+                  </property>
+                  <property name="class" stdset="0">
+                   <string>button-menu</string>
                   </property>
                  </widget>
                 </item>
@@ -1378,7 +1407,8 @@ color: #E7E5E4;
                 <cursorShape>ArrowCursor</cursorShape>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color:#30363D;</string>
+                <string notr="true">background-color:#30363D;
+</string>
                </property>
                <property name="frameShape">
                 <enum>QFrame::Shape::StyledPanel</enum>
@@ -1408,13 +1438,91 @@ color: #E7E5E4;
                 <item>
                  <widget class="QStackedWidget" name="stackedWidget">
                   <property name="styleSheet">
-                   <string notr="true"/>
+                   <string notr="true">border: 1px solid red;</string>
                   </property>
                   <property name="currentIndex">
                    <number>1</number>
                   </property>
                   <widget class="QWidget" name="page_3"/>
-                  <widget class="QWidget" name="page_4"/>
+                  <widget class="QWidget" name="page_4">
+                   <widget class="QPushButton" name="pushButton_8">
+                    <property name="geometry">
+                     <rect>
+                      <x>60</x>
+                      <y>120</y>
+                      <width>117</width>
+                      <height>40</height>
+                     </rect>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>60</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>120</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Almacen   </string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../resources/resources.qrc">
+                      <normaloff>:/icons/icons/package.svg</normaloff>:/icons/icons/package.svg</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>24</width>
+                      <height>24</height>
+                     </size>
+                    </property>
+                    <property name="class" stdset="0">
+                     <string>button-menu</string>
+                    </property>
+                   </widget>
+                   <widget class="QFrame" name="frame_4">
+                    <property name="geometry">
+                     <rect>
+                      <x>60</x>
+                      <y>160</y>
+                      <width>121</width>
+                      <height>86</height>
+                     </rect>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::Shape::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Shadow::Raised</enum>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_6">
+                     <item>
+                      <widget class="QPushButton" name="pushButton_17">
+                       <property name="text">
+                        <string>PushButton</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButton_18">
+                       <property name="text">
+                        <string>PushButton</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButton_19">
+                       <property name="text">
+                        <string>PushButton</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
                  </widget>
                 </item>
                </layout>

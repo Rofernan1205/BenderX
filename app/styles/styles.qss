@@ -42,7 +42,7 @@ QLabel[class="label-main"] {
 QLabel[class="label-hint-bold"] {
     color: #8B949E;
     font-size: 14px;
-   font:bold;
+    font:bold;
 }
 
 
