@@ -17,4 +17,7 @@
     <file>icons/minimize.svg</file>
     <file>icons/windows.svg</file>
   </qresource>
+  <qresource prefix="images">
+    <file>images/apubyte.jpg</file>
+  </qresource>
 </RCC>
