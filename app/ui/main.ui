@@ -14,7 +14,9 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QMainWindow  {
+   <string notr="true">
+
+QMainWindow  {
     background-color: #010409;
     color: #c9d1d9;
     font-family: &quot;Segoe UI&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, sans-serif;
@@ -26,7 +28,6 @@ QLabel[class=&quot;foto-circular&quot;] {
     border-radius: 50px;      
     background-color: #161b22; 
 }
-
 
 
 QFrame {
@@ -126,6 +127,7 @@ QLineEdit[class=&quot;main-field&quot;]:disabled {
     border: 1px solid #21262D;
 }
 
+
 /* =========================
    BOTÓN PRINCIPAL
    ========================= */
@@ -137,19 +139,15 @@ QPushButton[class=&quot;main-button&quot;] {
     padding: 8px;
     font-weight: bold;
     font-size: 15px;
-
 }
-
 /* Hover */
 QPushButton[class=&quot;main-button&quot;]:hover {
     background-color: #2EA043;
 }
-
 /* Click */
 QPushButton[class=&quot;main-button&quot;]:pressed {
     background-color: #1A7F37;
 }
-
 /* Disabled */
 QPushButton[class=&quot;main-button&quot;]:disabled {
     background-color: #21262D;
@@ -171,17 +169,14 @@ QPushButton[class=&quot;secondary-button&quot;] {
     font-size: 14px;
 
 }
-
 /* Hover */
 QPushButton[class=&quot;secondary-button&quot;]:hover {
     background-color: #2EA043;
 }
-
 /* Click */
 QPushButton[class=&quot;secondary-button&quot;]:pressed {
     background-color: #1A7F37;
 }
-
 /* Disabled */
 QPushButton[class=&quot;secondary-button&quot;]:disabled {
     background-color: #21262D;
@@ -202,19 +197,14 @@ QPushButton[class=&quot;buttons-circle&quot;] {
     font-weight: bold;
     font-size: 14px;
 }
-
 /* Hover */
 QPushButton[class=&quot;buttons-circle&quot;]:hover {
     background-color: #30363D;
-    
-
 }
-
 /* Click */
 QPushButton[class=&quot;buttons-circle&quot;]:pressed {
     background-color: #000000;
 }
-
 /* Disabled */
 QPushButton[class=&quot;buttons-circle&quot;]:disabled {
     background-color: #010409;
@@ -264,6 +254,7 @@ QPushButton[class=&quot;button-menu&quot;] {
     padding: 8px;
     font-weight: bold;
     font-size: 14px;
+   text-align: left;
 }
 
 /* Hover */
@@ -274,14 +265,103 @@ QPushButton[class=&quot;button-menu&quot;]:hover {
 /* Click */
 QPushButton[class=&quot;button-menu&quot;]:pressed {
     border: 1px  solid #8B949E;
-    background-color: #000000;
+    background-color: #30363D;
+    border-radius: 6px;
 }
-
+/* Seleccionado (Checkable) */
+QPushButton[class=&quot;button-menu&quot;]:checked {
+    background-color: #30363D;
+    color: white;
+    border-left: 3px solid white; 
+    border-radius: 6px; 
+}
 /* Disabled */
 QPushButton[class=&quot;button-menu&quot;]:disabled {
     background-color: #010409;
     color: #6E7681;
 }
+
+
+/* =========================
+   BOTÓNES SUB MENU
+   ========================= */
+QPushButton[class=&quot;button-sub-menu&quot;] {
+    background-color:#010409;
+    color: white;
+    border-radius: 6px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 14px;
+   text-align: left;
+  
+}
+
+/* Hover */
+QPushButton[class=&quot;button-sub-menu&quot;]:hover {
+    background-color: #30363D;
+}
+
+/* Click */
+QPushButton[class=&quot;button-sub-menu&quot;]:pressed {
+    border: 1px  solid #8B949E;
+    background-color: #30363D;
+    border-radius: 6px;
+}
+/* Seleccionado (Checkable) */
+QPushButton[class=&quot;button-sub-menu&quot;]:checked {
+    background-color: #30363D;
+    color: white;
+    border-left: 3px solid white; 
+    border-radius: 6px; 
+}
+/* Disabled */
+QPushButton[class=&quot;button-sub-menu&quot;]:disabled {
+    background-color: #010409;
+    color: #6E7681;
+}
+
+
+/* =========================
+   BOTÓNES MENU ICON
+   ========================= */
+QPushButton[class=&quot;button-menu-icon&quot;] {
+    background-color:#010409;
+    color: white;
+    border-radius: 6px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 14px;
+   text-align: center;
+}
+
+/* Hover */
+QPushButton[class=&quot;button-menu-icon&quot;]:hover {
+    background-color: #30363D;
+}
+
+/* Click */
+QPushButton[class=&quot;button-menu-icon&quot;]:pressed {
+    border: 1px  solid #8B949E;
+    background-color: #30363D;
+    border-radius: 6px;
+}
+
+/* Seleccionado (Checkable) */
+QPushButton[class=&quot;button-menu-icon&quot;]:checked {
+    background-color: #30363D;
+    color: white;
+    border-left: 3px solid white; 
+    border-radius: 6px; 
+}
+
+/* Disabled */
+QPushButton[class=&quot;button-menu-icon&quot;]:disabled {
+    background-color: #010409;
+    color: #6E7681;
+}
+
+
+
 
 
 
@@ -694,7 +774,7 @@ color: #E7E5E4;
               <widget class="QFrame" name="frame_icon">
                <property name="minimumSize">
                 <size>
-                 <width>40</width>
+                 <width>60</width>
                  <height>0</height>
                 </size>
                </property>
@@ -715,7 +795,7 @@ color: #E7E5E4;
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_3">
                 <property name="spacing">
-                 <number>0</number>
+                 <number>3</number>
                 </property>
                 <item>
                  <widget class="QFrame" name="frame_8">
@@ -783,12 +863,15 @@ color: #E7E5E4;
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
                   </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
                   <property name="class" stdset="0">
-                   <string>button-menu</string>
+                   <string>button-menu-icon</string>
                   </property>
                  </widget>
                 </item>
@@ -803,12 +886,15 @@ color: #E7E5E4;
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
                   </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
                   <property name="class" stdset="0">
-                   <string>button-menu</string>
+                   <string>button-menu-icon</string>
                   </property>
                  </widget>
                 </item>
@@ -819,16 +905,19 @@ color: #E7E5E4;
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/icons/icons/economic.svg</normaloff>:/icons/icons/economic.svg</iconset>
+                    <normaloff>:/icons/icons/sales-up.svg</normaloff>:/icons/icons/sales-up.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
                   </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
                   <property name="class" stdset="0">
-                   <string>button-menu</string>
+                   <string>button-menu-icon</string>
                   </property>
                  </widget>
                 </item>
@@ -839,16 +928,19 @@ color: #E7E5E4;
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/icons/icons/pos.svg</normaloff>:/icons/icons/pos.svg</iconset>
+                    <normaloff>:/icons/icons/cashier.svg</normaloff>:/icons/icons/cashier.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
                   </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
                   <property name="class" stdset="0">
-                   <string>button-menu</string>
+                   <string>button-menu-icon</string>
                   </property>
                  </widget>
                 </item>
@@ -862,16 +954,19 @@ color: #E7E5E4;
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/icons/icons/statistics.svg</normaloff>:/icons/icons/statistics.svg</iconset>
+                    <normaloff>:/icons/icons/shopping-cart.svg</normaloff>:/icons/icons/shopping-cart.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
                   </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
                   <property name="class" stdset="0">
-                   <string>button-menu</string>
+                   <string>button-menu-icon</string>
                   </property>
                  </widget>
                 </item>
@@ -886,12 +981,38 @@ color: #E7E5E4;
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
                   </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
                   <property name="class" stdset="0">
-                   <string>button-menu</string>
+                   <string>button-menu-icon</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_21">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/icons/icons/customers.svg</normaloff>:/icons/icons/customers.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>20</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="class" stdset="0">
+                   <string>button-menu-icon</string>
                   </property>
                  </widget>
                 </item>
@@ -922,12 +1043,15 @@ color: #E7E5E4;
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
                   </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
                   <property name="class" stdset="0">
-                   <string>button-menu</string>
+                   <string>button-menu-icon</string>
                   </property>
                  </widget>
                 </item>
@@ -942,12 +1066,12 @@ color: #E7E5E4;
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="class" stdset="0">
-                   <string>button-menu</string>
+                   <string>button-menu-icon</string>
                   </property>
                  </widget>
                 </item>
@@ -958,13 +1082,13 @@ color: #E7E5E4;
               <widget class="QFrame" name="frame_menu">
                <property name="minimumSize">
                 <size>
-                 <width>70</width>
+                 <width>160</width>
                  <height>0</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>140</width>
+                 <width>180</width>
                  <height>16777215</height>
                 </size>
                </property>
@@ -979,7 +1103,19 @@ color: #E7E5E4;
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_4">
                 <property name="spacing">
-                 <number>0</number>
+                 <number>3</number>
+                </property>
+                <property name="leftMargin">
+                 <number>9</number>
+                </property>
+                <property name="topMargin">
+                 <number>9</number>
+                </property>
+                <property name="rightMargin">
+                 <number>9</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>9</number>
                 </property>
                 <item>
                  <widget class="QFrame" name="frame_7">
@@ -1043,19 +1179,22 @@ color: #E7E5E4;
                   </layout>
                  </widget>
                 </item>
-                <item alignment="Qt::AlignmentFlag::AlignVCenter">
+                <item>
                  <widget class="QPushButton" name="pushButton_7">
                   <property name="minimumSize">
                    <size>
-                    <width>60</width>
+                    <width>0</width>
                     <height>0</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>120</width>
+                    <width>16777215</width>
                     <height>16777215</height>
                    </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
                   </property>
                   <property name="text">
                    <string>Dashboard</string>
@@ -1066,61 +1205,35 @@ color: #E7E5E4;
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
                   </property>
                   <property name="class" stdset="0">
                    <string>button-menu</string>
                   </property>
                  </widget>
                 </item>
-                <item alignment="Qt::AlignmentFlag::AlignVCenter">
-                 <widget class="QPushButton" name="pushButton_9">
-                  <property name="minimumSize">
-                   <size>
-                    <width>60</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>120</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string>Caja          </string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/icons/icons/economic.svg</normaloff>:/icons/icons/economic.svg</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>24</width>
-                    <height>24</height>
-                   </size>
-                  </property>
-                  <property name="class" stdset="0">
-                   <string>button-menu</string>
-                  </property>
-                 </widget>
-                </item>
-                <item alignment="Qt::AlignmentFlag::AlignVCenter">
+                <item>
                  <widget class="QPushButton" name="pushButton_10">
                   <property name="text">
-                   <string>Ventas      </string>
+                   <string>Caja</string>
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/icons/icons/pos.svg</normaloff>:/icons/icons/pos.svg</iconset>
+                    <normaloff>:/icons/icons/cashier.svg</normaloff>:/icons/icons/cashier.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
                   </property>
                   <property name="class" stdset="0">
                    <string>button-menu</string>
@@ -1130,17 +1243,20 @@ color: #E7E5E4;
                 <item>
                  <widget class="QPushButton" name="pushButton_11">
                   <property name="text">
-                   <string>Reportes  </string>
+                   <string>Compras</string>
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
-                    <normaloff>:/icons/icons/statistics.svg</normaloff>:/icons/icons/statistics.svg</iconset>
+                    <normaloff>:/icons/icons/shopping-cart.svg</normaloff>:/icons/icons/shopping-cart.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
                   </property>
                   <property name="class" stdset="0">
                    <string>button-menu</string>
@@ -1150,7 +1266,7 @@ color: #E7E5E4;
                 <item>
                  <widget class="QPushButton" name="pushButton_14">
                   <property name="text">
-                   <string>Usuarios </string>
+                   <string>Usuarios</string>
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
@@ -1158,9 +1274,35 @@ color: #E7E5E4;
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                  <property name="class" stdset="0">
+                   <string>button-menu</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_20">
+                  <property name="text">
+                   <string>Clientes</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="../resources/resources.qrc">
+                    <normaloff>:/icons/icons/customers.svg</normaloff>:/icons/icons/customers.svg</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>20</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
                   </property>
                   <property name="class" stdset="0">
                    <string>button-menu</string>
@@ -1183,7 +1325,7 @@ color: #E7E5E4;
                 <item>
                  <widget class="QPushButton" name="pushButton_16">
                   <property name="text">
-                   <string>Config     </string>
+                   <string>Configuración  </string>
                   </property>
                   <property name="icon">
                    <iconset resource="../resources/resources.qrc">
@@ -1191,8 +1333,8 @@ color: #E7E5E4;
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="class" stdset="0">
@@ -1211,8 +1353,8 @@ color: #E7E5E4;
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>24</width>
-                    <height>24</height>
+                    <width>20</width>
+                    <height>20</height>
                    </size>
                   </property>
                   <property name="class" stdset="0">
@@ -1239,7 +1381,7 @@ color: #E7E5E4;
               <number>0</number>
              </property>
              <property name="topMargin">
-              <number>9</number>
+              <number>0</number>
              </property>
              <property name="rightMargin">
               <number>0</number>
@@ -1445,51 +1587,13 @@ color: #E7E5E4;
                   </property>
                   <widget class="QWidget" name="page_3"/>
                   <widget class="QWidget" name="page_4">
-                   <widget class="QPushButton" name="pushButton_8">
+                   <widget class="QFrame" name="frame_5">
                     <property name="geometry">
                      <rect>
-                      <x>60</x>
-                      <y>120</y>
-                      <width>117</width>
-                      <height>40</height>
-                     </rect>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>60</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>120</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Almacen   </string>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="../resources/resources.qrc">
-                      <normaloff>:/icons/icons/package.svg</normaloff>:/icons/icons/package.svg</iconset>
-                    </property>
-                    <property name="iconSize">
-                     <size>
-                      <width>24</width>
-                      <height>24</height>
-                     </size>
-                    </property>
-                    <property name="class" stdset="0">
-                     <string>button-menu</string>
-                    </property>
-                   </widget>
-                   <widget class="QFrame" name="frame_4">
-                    <property name="geometry">
-                     <rect>
-                      <x>60</x>
-                      <y>160</y>
-                      <width>121</width>
-                      <height>86</height>
+                      <x>210</x>
+                      <y>40</y>
+                      <width>161</width>
+                      <height>151</height>
                      </rect>
                     </property>
                     <property name="frameShape">
@@ -1498,26 +1602,280 @@ color: #E7E5E4;
                     <property name="frameShadow">
                      <enum>QFrame::Shadow::Raised</enum>
                     </property>
-                    <layout class="QVBoxLayout" name="verticalLayout_6">
+                    <layout class="QVBoxLayout" name="verticalLayout_7">
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
                      <item>
-                      <widget class="QPushButton" name="pushButton_17">
+                      <widget class="QPushButton" name="pushButton_8">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
                        <property name="text">
-                        <string>PushButton</string>
+                        <string>Inventario</string>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="../resources/resources.qrc">
+                         <normaloff>:/icons/icons/package.svg</normaloff>:/icons/icons/package.svg</iconset>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>20</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                       <property name="checkable">
+                        <bool>true</bool>
+                       </property>
+                       <property name="checked">
+                        <bool>false</bool>
+                       </property>
+                       <property name="class" stdset="0">
+                        <string>button-menu</string>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_18">
+                      <widget class="QFrame" name="frame_4">
+                       <property name="frameShape">
+                        <enum>QFrame::Shape::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Shadow::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_6">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>10</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QPushButton" name="pushButton_17">
+                          <property name="text">
+                           <string>Productos</string>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>20</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                          <property name="checkable">
+                           <bool>true</bool>
+                          </property>
+                          <property name="class" stdset="0">
+                           <string>button-sub-menu</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="pushButton_18">
+                          <property name="text">
+                           <string>Categorías</string>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>20</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                          <property name="checkable">
+                           <bool>true</bool>
+                          </property>
+                          <property name="class" stdset="0">
+                           <string>button-sub-menu</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="pushButton_19">
+                          <property name="text">
+                           <string>Kardex</string>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>20</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                          <property name="checkable">
+                           <bool>true</bool>
+                          </property>
+                          <property name="class" stdset="0">
+                           <string>button-sub-menu</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QFrame" name="frame_10">
+                    <property name="geometry">
+                     <rect>
+                      <x>40</x>
+                      <y>40</y>
+                      <width>157</width>
+                      <height>181</height>
+                     </rect>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::Shape::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Shadow::Raised</enum>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_9">
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item>
+                      <widget class="QPushButton" name="pushButton_9">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true"/>
+                       </property>
                        <property name="text">
-                        <string>PushButton</string>
+                        <string>Ventas</string>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="../resources/resources.qrc">
+                         <normaloff>:/icons/icons/sales-up.svg</normaloff>:/icons/icons/sales-up.svg</iconset>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>20</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                       <property name="checkable">
+                        <bool>true</bool>
+                       </property>
+                       <property name="class" stdset="0">
+                        <string>button-menu</string>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QPushButton" name="pushButton_19">
-                       <property name="text">
-                        <string>PushButton</string>
+                      <widget class="QFrame" name="frame_9">
+                       <property name="frameShape">
+                        <enum>QFrame::Shape::StyledPanel</enum>
                        </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Shadow::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_8">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>10</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QPushButton" name="pushButton_22">
+                          <property name="text">
+                           <string>Terminal</string>
+                          </property>
+                          <property name="class" stdset="0">
+                           <string>button-sub-menu</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="pushButton_25">
+                          <property name="text">
+                           <string>Historial</string>
+                          </property>
+                          <property name="class" stdset="0">
+                           <string>button-sub-menu</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="pushButton_23">
+                          <property name="text">
+                           <string>Comprobantes</string>
+                          </property>
+                          <property name="class" stdset="0">
+                           <string>button-sub-menu</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="pushButton_24">
+                          <property name="text">
+                           <string>Métodos</string>
+                          </property>
+                          <property name="class" stdset="0">
+                           <string>button-sub-menu</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
                       </widget>
                      </item>
                     </layout>
@@ -1598,5 +1956,102 @@ color: #E7E5E4;
  <resources>
   <include location="../resources/resources.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_8</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>frame_4</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>784</x>
+     <y>465</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>784</x>
+     <y>576</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_close</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>902</x>
+     <y>24</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>97</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_max</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showFullScreen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>866</x>
+     <y>31</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_mid</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showNormal()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>835</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>817</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_min</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showMinimized()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>795</x>
+     <y>22</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>730</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_9</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>frame_9</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>752</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>767</x>
+     <y>277</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

@@ -1,6 +1,10 @@
 <RCC>
   <qresource prefix="icons">
     <file>icons/users.svg</file>
+    <file>icons/cashier.svg</file>
+    <file>icons/customers.svg</file>
+    <file>icons/sales-up.svg</file>
+    <file>icons/shopping-cart.svg</file>
     <file>icons/dashboard.svg</file>
     <file>icons/economic.svg</file>
     <file>icons/menu.svg</file>
